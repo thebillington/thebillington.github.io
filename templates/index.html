@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>{{ profile.name }}</h1>
+  <div class="tagline">{{ profile.tagline }}</div>
+  <div class="bio">{{ profile.bio }}</div>
+  <div class="links">
+    {% if profile.links.github %}
+      <a href="https://github.com/{{ profile.links.github }}">GitHub</a>
+    {% endif %}
+    {% if profile.links.linkedin %}
+      <a href="https://linkedin.com/in/{{ profile.links.linkedin }}">LinkedIn</a>
+    {% endif %}
+    {% if profile.links.cv %}
+      <a href="{{ profile.links.cv }}">CV</a>
+    {% endif %}
+    {% if profile.links.email %}
+      <a href="mailto:{{ profile.links.email }}">Email</a>
+    {% endif %}
+  </div>
+</header>
+
+{% if profile.status %}
+<div class="status-grid">
+  {% for item in profile.status %}
+  <div class="status-item">
+    <span class="label">{{ item.label }}:</span> {{ item.value }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if featured %}
+<section>
+  <h2>Featured Projects</h2>
+  <div class="featured-grid">
+    {% for p in featured %}
+    <div class="card">
+      <h3>{{ p.name }}</h3>
+      <div class="meta">{{ p.year }}</div>
+      <p>{{ p.description }}</p>
+      <div class="tech-tags">
+        {% for t in p.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/{{ p.repo }}">Source</a>
+        {% if p.demo %}<a class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if projects %}
+<section>
+  <h2>All Projects</h2>
+  <div class="project-list">
+    {% for p in projects %}
+    <div class="card">
+      <h3>{{ p.name }}</h3>
+      <div class="meta">{{ p.year }}</div>
+      <p>{{ p.description }}</p>
+      <div class="tech-tags">
+        {% for t in p.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/{{ p.repo }}">Source</a>
+        {% if p.demo %}<a class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<footer>
+  {{ profile.name }} &mdash; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a>
+</footer>
+{% endblock %}

@@ -1,0 +1,27 @@
+name: Billy Rebecchi
+handle: thebillington
+tagline: "Software Engineer & Educationalist"
+location: Nottingham, UK
+
+bio: >
+  I've been building things for over a decade — web apps, mobile apps,
+  developer tools, game jams, and Game Boy homebrew. By day I write software
+  and teach the next generation of engineers. By night I'm wrestling with
+  gbZ80 assembly in a hex editor or chasing the next Ludum Dare deadline.
+
+links:
+  github: thebillington
+  linkedin: thebillington
+  cv: https://thebillington.github.io/cv/
+
+status:
+  - label: "Currently"
+    value: "Senior Software Engineer"
+  - label: "Parenting"
+    value: "Dad to two small chaos agents"
+  - label: "Moderating"
+    value: "A-Level Computer Science"
+  - label: "Learning"
+    value: "Apple Silicon internals, Rust, more Game Boy"
+  - label: "Location"
+    value: "Nottingham, UK"

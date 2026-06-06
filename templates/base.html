@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ profile.name }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-dim: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f6feb;
+      --green: #3fb950;
+      --orange: #d29922;
+      --pink: #f778ba;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3 { font-weight: 600; line-height: 1.3; }
+
+    header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 8px; }
+    header .tagline { font-size: 1.15rem; color: var(--text-dim); }
+    header .bio { margin: 16px 0 24px; max-width: 640px; color: var(--text-dim); }
+    .links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .links a {
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .links a:hover { color: var(--accent); }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .status-item { font-size: 0.875rem; }
+    .status-item .label { color: var(--text-dim); }
+
+    section { padding: 40px 0; }
+    section h2 {
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent-dim); }
+    .card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .card .meta { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px; }
+    .card p { font-size: 0.875rem; color: var(--text-dim); margin-bottom: 12px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .card-links { margin-top: 12px; display: flex; gap: 12px; }
+    .card-links a { font-size: 0.8rem; font-weight: 500; }
+    .card-links .demo-link { color: var(--green); }
+
+    .project-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 40px 0 32px; }
+      header h1 { font-size: 1.75rem; }
+      .featured-grid, .project-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
