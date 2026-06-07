@@ -4,7 +4,7 @@
   description: Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.
   tech: [Python, Turtle]
   repo: thebillington/tphysics
-  demo: false
+  demo: https://tphysics.uk
   video: https://www.youtube.com/watch?v=6z4ZEE0VqHU
 
 - name: Mushy's Adventure
@@ -169,6 +169,14 @@
   repo: thebillington/project_ppu
   demo: false
 
+- name: Learn Game Boy
+  year: 2018
+  category: apps
+  description: Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.
+  tech: [Python, Jinja2, HTML, CSS]
+  repo: thebillington/learngameboy
+  demo: https://learngameboy.com/
+
 - name: Wedding Web
   year: 2019
   category: apps
@@ -200,11 +208,3 @@
   tech: [Python, Selenium]
   repo: thebillington/ocr-repo-fetch
   demo: false
-
-- name: Learn Game Boy
-  year: 2026
-  category: apps
-  description: Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.
-  tech: [Python, Jinja2, HTML, CSS]
-  repo: thebillington/learngameboy
-  demo: https://learngameboy.com/
