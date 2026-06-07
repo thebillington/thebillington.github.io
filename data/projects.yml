@@ -105,6 +105,14 @@
   demo: false
   video: https://www.youtube.com/watch?v=UIOYu7G-LCk
 
+- name: pydle
+  year: 2025
+  category: apps
+  description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.
+  tech: [Python, JavaScript, Pyodide]
+  repo: thebillington/pydle
+  demo: https://pydle.uk
+
 - name: Quest Companion
   year: 2021
   category: apps
