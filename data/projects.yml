@@ -16,14 +16,6 @@
   demo: false
   video: https://www.youtube.com/watch?v=rDdYTNc6fCU
 
-- name: Learn Game Boy
-  year: 2026
-  category: featured
-  description: Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.
-  tech: [Python, Jinja2, HTML, CSS]
-  repo: thebillington/learngameboy
-  demo: https://learngameboy.com/
-
 - name: Seasons
   year: 2017
   category: featured
@@ -208,3 +200,11 @@
   tech: [Python, Selenium]
   repo: thebillington/ocr-repo-fetch
   demo: false
+
+- name: Learn Game Boy
+  year: 2026
+  category: apps
+  description: Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.
+  tech: [Python, Jinja2, HTML, CSS]
+  repo: thebillington/learngameboy
+  demo: https://learngameboy.com/
