@@ -106,7 +106,7 @@
   video: https://www.youtube.com/watch?v=UIOYu7G-LCk
 
 - name: pydle
-  year: 2025
+  year: 2026
   category: apps
   description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.
   tech: [Python, JavaScript, Pyodide]
