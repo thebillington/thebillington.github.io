@@ -1,13 +1,12 @@
 name: Billy Rebecchi
 handle: thebillington
-tagline: "Software Engineer & Educationalist"
+tagline: "Full Stack Engineer & Computer Science Teacher"
 location: Nottingham, UK
 
 bio: >
-  I've been building things for over a decade — web apps, mobile apps,
-  developer tools, game jams, and Game Boy homebrew. By day I write software
-  and teach the next generation of engineers. By night I'm wrestling with
-  gbZ80 assembly in a hex editor or chasing the next Ludum Dare deadline.
+  I've been building for 20 years and am a big fan of reinventing the wheel; how else would people learn to build wheels?
+  I've spent the last 10 years building tools to help teach Computer Science in school and participating in game jams.
+  I'm a huge proponent of low-level first principles and believe we should be teaching digital logic and Assembly in classrooms before ever touching higher level languages.
 
 links:
   github: thebillington
@@ -16,12 +15,8 @@ links:
 
 status:
   - label: "Currently"
-    value: "Senior Software Engineer"
+    value: "Full Stack Engineer"
   - label: "Parenting"
     value: "Dad to two small chaos agents"
-  - label: "Moderating"
-    value: "A-Level Computer Science"
-  - label: "Learning"
-    value: "Apple Silicon internals, Rust, more Game Boy"
   - label: "Location"
     value: "Nottingham, UK"

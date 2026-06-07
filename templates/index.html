@@ -7,13 +7,13 @@
   <div class="bio">{{ profile.bio }}</div>
   <div class="links">
     {% if profile.links.github %}
-      <a href="https://github.com/{{ profile.links.github }}">GitHub</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ profile.links.github }}">GitHub</a>
     {% endif %}
     {% if profile.links.linkedin %}
-      <a href="https://linkedin.com/in/{{ profile.links.linkedin }}">LinkedIn</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/{{ profile.links.linkedin }}">LinkedIn</a>
     {% endif %}
     {% if profile.links.cv %}
-      <a href="{{ profile.links.cv }}">CV</a>
+      <a target="_blank" rel="noopener noreferrer" href="{{ profile.links.cv }}">CV</a>
     {% endif %}
     {% if profile.links.email %}
       <a href="mailto:{{ profile.links.email }}">Email</a>
@@ -25,57 +25,36 @@
 <div class="status-grid">
   {% for item in profile.status %}
   <div class="status-item">
-    <span class="label">{{ item.label }}:</span> {{ item.value }}
+    <span class="label">{{ item.label }}</span> {{ item.value }}
   </div>
   {% endfor %}
 </div>
 {% endif %}
 
-{% if featured %}
+{% for section in sections %}
 <section>
-  <h2>Featured Projects</h2>
-  <div class="featured-grid">
-    {% for p in featured %}
-    <div class="card">
-      <h3>{{ p.name }}</h3>
-      <div class="meta">{{ p.year }}</div>
-      <p>{{ p.description }}</p>
-      <div class="tech-tags">
-        {% for t in p.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/{{ p.repo }}">Source</a>
-        {% if p.demo %}<a class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{% if projects %}
-<section>
-  <h2>All Projects</h2>
+  <h2>{{ section.title }}</h2>
   <div class="project-list">
-    {% for p in projects %}
+    {% for p in section.projects %}
     <div class="card">
       <h3>{{ p.name }}</h3>
       <div class="meta">{{ p.year }}</div>
-      <p>{{ p.description }}</p>
+      <p class="desc">{{ p.description }}</p>
       <div class="tech-tags">
         {% for t in p.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
       </div>
       <div class="card-links">
-        <a href="https://github.com/{{ p.repo }}">Source</a>
-        {% if p.demo %}<a class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ p.repo }}">Source</a>
+        {% if p.demo %}<a target="_blank" rel="noopener noreferrer" class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
+        {% if p.video %}<a target="_blank" rel="noopener noreferrer" class="video-link" href="{{ p.video }}">Video</a>{% endif %}
       </div>
     </div>
     {% endfor %}
   </div>
 </section>
-{% endif %}
+{% endfor %}
 
 <footer>
-  {{ profile.name }} &mdash; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a>
+  {{ profile.name }} &middot; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a>
 </footer>
 {% endblock %}

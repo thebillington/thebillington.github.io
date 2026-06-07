@@ -1,246 +1,202 @@
-featured:
-  - name: Mushy's Adventure
-    year: 2023
-    description: Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.
-    tech: [Assembly, gbZ80, Game Boy]
-    repo: thebillington/mushys_adventure
-    demo: false
+- name: tphysics
+  year: 2023
+  category: featured
+  description: Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.
+  tech: [Python, Turtle]
+  repo: thebillington/tphysics
+  demo: false
+  video: https://www.youtube.com/watch?v=6z4ZEE0VqHU
 
-  - name: Seasons
-    year: 2017
-    description: A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.
-    tech: [p5.js, JavaScript]
-    repo: thebillington/seasons
-    demo: https://thebillington.github.io/seasons/
+- name: Mushy's Adventure
+  year: 2023
+  category: featured
+  description: Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.
+  tech: [Assembly, gbZ80, Game Boy]
+  repo: thebillington/mushys_adventure
+  demo: false
+  video: https://www.youtube.com/watch?v=rDdYTNc6fCU
 
-  - name: Automatron
-    year: 2018
-    description: Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and community levels.
-    tech: [p5.js, JavaScript, PHP]
-    repo: thebillington/Automatron
-    demo: false
+- name: Seasons
+  year: 2017
+  category: featured
+  description: A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.
+  tech: [p5.js, JavaScript]
+  repo: thebillington/seasons
+  demo: https://thebillington.github.io/seasons/
 
-  - name: tphysics
-    year: 2023
-    description: Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.
-    tech: [Python, Turtle]
-    repo: thebillington/tphysics
-    demo: false
+- name: CV
+  year: 2026
+  category: featured
+  description: My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.
+  tech: [Python, Typst]
+  repo: thebillington/cv
+  demo: https://thebillington.github.io/cv/
 
-  - name: Quest Companion
-    year: 2021
-    description: Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.
-    tech: [Kotlin, Android]
-    repo: thebillington/quest_companion_android
-    demo: false
+- name: Binary Assembler Bot
+  year: 2018
+  category: featured
+  description: Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.
+  tech: [p5.js, JavaScript]
+  repo: thebillington/bab
+  demo: https://thebillington.github.io/bab/
 
-  - name: Binary Assembler Bot
-    year: 2018
-    description: Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.
-    tech: [p5.js, JavaScript]
-    repo: thebillington/bab
-    demo: https://thebillington.github.io/bab/
+- name: psx2rip
+  year: 2026
+  category: featured
+  description: PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.
+  tech: [Shell, Bash]
+  repo: thebillington/psx2rip
+  demo: false
 
-projects:
-  - name: Garden of Eden GB
-    year: 2023
-    description: Game Boy game built for Global Game Jam 2023 based on the theme Roots.
-    tech: [Assembly, gbZ80, Game Boy]
-    repo: thebillington/garden-of-eden-GB
-    demo: false
+- name: Automatron
+  year: 2018
+  category: games
+  description: Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and a level editor. Has a PHP backend for community level sharing.
+  tech: [p5.js, JavaScript, PHP]
+  repo: thebillington/Automatron
+  demo: false
 
-  - name: Skazka
-    year: 2019
-    description: Game Boy game built with GBDK in C for Global Game Jam 2019. Features incredible pixel assets and narrative.
-    tech: [C, GBDK, Game Boy]
-    repo: thebillington/Skazka
-    demo: false
+- name: Outnumbered
+  year: 2021
+  category: games
+  description: Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.
+  tech: [p5.js, JavaScript]
+  repo: thebillington/outnumberedGame
+  demo: https://thebillington.github.io/outnumberedGame/
 
-  - name: Outnumbered
-    year: 2021
-    description: Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.
-    tech: [p5.js, JavaScript]
-    repo: thebillington/outnumberedGame
-    demo: https://thebillington.github.io/outnumberedGame/
+- name: Automatons
+  year: 2021
+  category: games
+  description: Assembly programming puzzle game where you learn low-level programming concepts through interactive challenges.
+  tech: [JavaScript, HTML]
+  repo: thebillington/automatons
+  demo: https://thebillington.github.io/automatons/
 
-  - name: Automatons
-    year: 2021
-    description: Assembly programming puzzle game — learn low-level programming concepts through interactive challenges.
-    tech: [JavaScript, HTML]
-    repo: thebillington/automatons
-    demo: https://thebillington.github.io/automatons/
+- name: 90s Steam
+  year: 2018
+  category: games
+  description: Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.
+  tech: [JavaScript, HTML, CSS]
+  repo: thebillington/guh18
+  demo: https://thebillington.github.io/guh18/
 
-  - name: 90s Steam
-    year: 2018
-    description: Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.
-    tech: [JavaScript, HTML, CSS]
-    repo: thebillington/guh18
-    demo: https://thebillington.github.io/guh18/
+- name: Skazka
+  year: 2019
+  category: games
+  description: Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure.
+  tech: [C, GBDK, Game Boy]
+  repo: thebillington/Skazka
+  demo: false
 
-  - name: ShellJS
-    year: 2019
-    description: Terminal emulator personal website — a fake shell in the browser that accepts commands. A creative experiment in web design.
-    tech: [JavaScript, CSS]
-    repo: thebillington/shellJS
-    demo: https://thebillington.github.io/shellJS/
+- name: Garden of Eden GB
+  year: 2023
+  category: games
+  description: Game Boy game built for Global Game Jam 2023 based on the theme Roots.
+  tech: [Assembly, gbZ80, Game Boy]
+  repo: thebillington/garden-of-eden-GB
+  demo: false
 
-  - name: Ecoworks Monitoring
-    year: 2025
-    description: Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern web stack.
-    tech: [TypeScript, Next.js, SST]
-    repo: thebillington/ecoworks-monitoring
-    demo: false
+- name: Vehicle Game
+  year: 2018
+  category: games
+  description: OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay.
+  tech: [C++, OpenGL, GLSL]
+  repo: thebillington/VehicleGame
+  demo: false
+  video: https://www.youtube.com/watch?v=UIOYu7G-LCk
 
-  - name: D&D Cipher
-    year: 2025
-    description: Dungeons & Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.
-    tech: [TypeScript, HTML, CSS]
-    repo: thebillington/dnd-cipher
-    demo: https://thebillington.github.io/dnd-cipher/
+- name: Quest Companion
+  year: 2021
+  category: apps
+  description: Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.
+  tech: [Kotlin, Android]
+  repo: thebillington/quest_companion_android
+  demo: false
 
-  - name: Daikin Connect
-    year: 2024
-    description: Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.
-    tech: [TypeScript, Next.js]
-    repo: thebillington/daikin-connect
-    demo: false
+- name: Ecoworks Monitoring
+  year: 2025
+  category: apps
+  description: Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure.
+  tech: [TypeScript, Next.js, SST]
+  repo: thebillington/ecoworks-monitoring
+  demo: false
 
-  - name: Career Grid
-    year: 2023
-    description: Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.
-    tech: [p5.js, JavaScript]
-    repo: thebillington/career_grid
-    demo: https://thebillington.github.io/career_grid/
+- name: D&D Cipher
+  year: 2025
+  category: apps
+  description: Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.
+  tech: [TypeScript, HTML, CSS]
+  repo: thebillington/dnd-cipher
+  demo: https://thebillington.github.io/dnd-cipher/
 
-  - name: Project PPU
-    year: 2022
-    description: Pixel Processing Unit C library for Waveshare 3.5" touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.
-    tech: [C, CMake, Raspberry Pi Pico]
-    repo: thebillington/project_ppu
-    demo: false
+- name: Daikin Connect
+  year: 2024
+  category: apps
+  description: Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.
+  tech: [TypeScript, Next.js]
+  repo: thebillington/daikin-connect
+  demo: false
 
-  - name: psx2rip
-    year: 2026
-    description: PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.
-    tech: [Shell, Bash]
-    repo: thebillington/psx2rip
-    demo: false
+- name: Career Grid
+  year: 2023
+  category: apps
+  description: Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.
+  tech: [p5.js, JavaScript]
+  repo: thebillington/career_grid
+  demo: https://thebillington.github.io/career_grid/
 
-  - name: Vehicle Game
-    year: 2018
-    description: OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline.
-    tech: [C++, OpenGL, GLSL]
-    repo: thebillington/VehicleGame
-    demo: false
+- name: ShellJS
+  year: 2019
+  category: apps
+  description: Terminal emulator personal website. A fake shell in the browser that accepts commands. A creative experiment in web design.
+  tech: [JavaScript, CSS]
+  repo: thebillington/shellJS
+  demo: https://thebillington.github.io/shellJS/
 
-  - name: pyPhys3D
-    year: 2017
-    description: Three-dimensional physics engine built with Pygame and pyOpenGL. Implements basic collision detection on a non-rotated axis.
-    tech: [Python, Pygame, OpenGL]
-    repo: thebillington/pyPhys3D
-    demo: false
+- name: eClassroom
+  year: 2016
+  category: apps
+  description: Dissertation project. A VLE with adaptive quizzes using a dynamic pathway algorithm to adjust difficulty based on student progress.
+  tech: [Java, CSS]
+  repo: thebillington/eClassroom
+  demo: false
 
-  - name: LMCompile
-    year: 2022
-    description: Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.
-    tech: [Python]
-    repo: thebillington/LMCompile
-    demo: false
+- name: Project PPU
+  year: 2022
+  category: apps
+  description: Pixel Processing Unit C library for the Waveshare 3.5 inch touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.
+  tech: [C, CMake, Raspberry Pi Pico]
+  repo: thebillington/project_ppu
+  demo: false
 
-  - name: eClassroom
-    year: 2016
-    description: Dissertation project — a VLE with adaptive quizzes. Uses a dynamic pathway algorithm to adjust difficulty based on student progress.
-    tech: [Java, CSS]
-    repo: thebillington/eClassroom
-    demo: false
+- name: Wedding Web
+  year: 2019
+  category: apps
+  description: Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.
+  tech: [PHP, Laravel, Vue]
+  repo: thebillington/wedding-web
+  demo: false
 
-  - name: Unity Audio Game
-    year: 2024
-    description: Audio-first game built in Unity with Wwise integration. Designed for accessibility and non-visual gameplay.
-    tech: [C#, Unity, Wwise]
-    repo: thebillington/unity_wwise_audio_game
-    demo: false
+- name: barry-macos-arm
+  year: 2026
+  category: apps
+  description: Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver-level work.
+  tech: [C++, Shell, Python]
+  repo: thebillington/barry-macos-arm
+  demo: false
 
-  - name: barry-macos-arm
-    year: 2026
-    description: Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver work.
-    tech: [C++, Shell, Python]
-    repo: thebillington/barry-macos-arm
-    demo: false
+- name: LMCompile
+  year: 2022
+  category: apps
+  description: Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.
+  tech: [Python]
+  repo: thebillington/LMCompile
+  demo: false
 
-  - name: Space Invaders
-    year: 2018
-    description: Vanilla Python Space Invaders using Turtle graphics. Part of the 1978 project at Sandwell Academy.
-    tech: [Python, Turtle]
-    repo: thebillington/SpaceInvaders
-    demo: false
-
-  - name: SnowGlobe
-    year: 2018
-    description: Procedural snow globe animation built with Python Turtle. Generates falling snow and festive scenes.
-    tech: [Python, Turtle]
-    repo: thebillington/SnowGlobe
-    demo: false
-
-  - name: Connect Four Trade War
-    year: 2019
-    description: Node.js multiplayer Connect Four with p5.js rendering. Built for the Appoly Birthday Hackathon.
-    tech: [JavaScript, Node.js, p5.js, Socket.io]
-    repo: thebillington/connectFourTradeWar
-    demo: false
-
-  - name: Point and Click
-    year: 2022
-    description: Browser-based point and click adventure game built with p5.js.
-    tech: [p5.js, JavaScript]
-    repo: thebillington/pointAndClick
-    demo: https://thebillington.github.io/pointAndClick/
-
-  - name: Lorcana Learner
-    year: 2024
-    description: Deck builder for the Lorcana TCG targeting beginners. Combines a Python prototype with a TypeScript web frontend.
-    tech: [TypeScript, Python, Next.js]
-    repo: thebillington/lorcana-learner
-    demo: false
-
-  - name: Learnerborn
-    year: 2024
-    description: Lorcana-inspired card game built with Next.js. A personal project exploring card game mechanics.
-    tech: [TypeScript, Next.js]
-    repo: thebillington/learnerborn
-    demo: false
-
-  - name: ARpg
-    year: 2019
-    description: ARCore Android app for tabletop RPGs. Uses augmented reality to overlay game elements onto physical spaces.
-    tech: [Java, Android, ARCore]
-    repo: thebillington/ARpg
-    demo: false
-
-  - name: Block Bounce iOS
-    year: 2019
-    description: iOS version of the Block Bounce game built in Swift. Published on the App Store.
-    tech: [Swift, iOS]
-    repo: thebillington/block-bounce-ios
-    demo: false
-
-  - name: tPixelArt
-    year: 2017
-    description: Image creator library using Python Turtle to produce pixelated images. Designed for classroom use.
-    tech: [Python, Turtle]
-    repo: thebillington/tPixelArt
-    demo: false
-
-  - name: OCR Repo Fetch
-    year: 2024
-    description: Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.
-    tech: [Python, Selenium]
-    repo: thebillington/ocr-repo-fetch
-    demo: false
-
-  - name: Wedding Web
-    year: 2019
-    description: Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.
-    tech: [PHP, Laravel, Vue]
-    repo: thebillington/wedding-web
-    demo: false
+- name: OCR Repo Fetch
+  year: 2024
+  category: apps
+  description: Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.
+  tech: [Python, Selenium]
+  repo: thebillington/ocr-repo-fetch
+  demo: false

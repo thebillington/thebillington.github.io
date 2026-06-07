@@ -8,27 +8,43 @@ DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
 OUTPUT = ROOT / "docs"
 
+SECTION_ORDER = ["featured", "games", "apps"]
+SECTION_TITLES = {
+    "featured": "Featured",
+    "games": "Games",
+    "apps": "Apps & Tools",
+}
+
 def load_yaml(path):
     with open(path) as f:
         return yaml.safe_load(f)
 
 def main():
     profile = load_yaml(DATA / "profile.yml")
-    projects_data = load_yaml(DATA / "projects.yml")
+    projects = load_yaml(DATA / "projects.yml")
 
-    featured = projects_data.get("featured", [])
-    all_projects = projects_data.get("projects", [])
+    by_category = {}
+    for p in projects:
+        cat = p.get("category", "other")
+        by_category.setdefault(cat, []).append(p)
 
-    featured.sort(key=lambda p: p["year"], reverse=True)
-    all_projects.sort(key=lambda p: p["year"], reverse=True)
+    sections = []
+    for cat in SECTION_ORDER:
+        items = by_category.get(cat, [])
+        if cat != "featured":
+            items.sort(key=lambda p: p["year"], reverse=True)
+        sections.append({
+            "key": cat,
+            "title": SECTION_TITLES[cat],
+            "projects": items,
+        })
 
     env = Environment(loader=FileSystemLoader(TEMPLATES))
     template = env.get_template("index.html")
 
     html = template.render(
         profile=profile,
-        featured=featured,
-        projects=all_projects,
+        sections=sections,
     )
 
     OUTPUT.mkdir(parents=True, exist_ok=True)

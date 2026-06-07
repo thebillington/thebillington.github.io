@@ -42,7 +42,7 @@
     }
     header h1 { font-size: 2.5rem; margin-bottom: 8px; }
     header .tagline { font-size: 1.15rem; color: var(--text-dim); }
-    header .bio { margin: 16px 0 24px; max-width: 640px; color: var(--text-dim); }
+    header .bio { margin: 16px 0 24px; color: var(--text-dim); }
     .links { display: flex; gap: 16px; flex-wrap: wrap; }
     .links a {
       color: var(--text-dim);
@@ -52,14 +52,16 @@
     .links a:hover { color: var(--accent); }
 
     .status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 32px;
       padding: 24px 0;
       border-bottom: 1px solid var(--border);
     }
     .status-item { font-size: 0.875rem; }
     .status-item .label { color: var(--text-dim); }
+    .status-item .label::after { content: ":"; }
 
     section { padding: 40px 0; }
     section h2 {
@@ -80,12 +82,14 @@
       border-radius: 8px;
       padding: 20px;
       transition: border-color 0.2s;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover { border-color: var(--accent-dim); }
     .card h3 { font-size: 1rem; margin-bottom: 4px; }
     .card .meta { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px; }
-    .card p { font-size: 0.875rem; color: var(--text-dim); margin-bottom: 12px; }
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .card .desc { font-size: 0.875rem; color: var(--text-dim); flex: 1; }
+    .card .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .tech-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -98,6 +102,7 @@
     .card-links { margin-top: 12px; display: flex; gap: 12px; }
     .card-links a { font-size: 0.8rem; font-weight: 500; }
     .card-links .demo-link { color: var(--green); }
+    .card-links .video-link { color: var(--pink); }
 
     .project-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 
@@ -121,18 +126,18 @@
     
 <header>
   <h1>Billy Rebecchi</h1>
-  <div class="tagline">Software Engineer & Educationalist</div>
-  <div class="bio">I've been building things for over a decade — web apps, mobile apps, developer tools, game jams, and Game Boy homebrew. By day I write software and teach the next generation of engineers. By night I'm wrestling with gbZ80 assembly in a hex editor or chasing the next Ludum Dare deadline.
+  <div class="tagline">Full Stack Engineer & Computer Science Teacher</div>
+  <div class="bio">I've been building for 20 years and am a big fan of reinventing the wheel; how else would people learn to build wheels? I've spent the last 10 years building tools to help teach Computer Science in school and participating in game jams. I'm a huge proponent of low-level first principles and believe we should be teaching digital logic and Assembly in classrooms before ever touching higher level languages.
 </div>
   <div class="links">
     
-      <a href="https://github.com/thebillington">GitHub</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington">GitHub</a>
     
     
-      <a href="https://linkedin.com/in/thebillington">LinkedIn</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/thebillington">LinkedIn</a>
     
     
-      <a href="https://thebillington.github.io/cv/">CV</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/cv/">CV</a>
     
     
   </div>
@@ -142,23 +147,15 @@
 <div class="status-grid">
   
   <div class="status-item">
-    <span class="label">Currently:</span> Senior Software Engineer
+    <span class="label">Currently</span> Full Stack Engineer
   </div>
   
   <div class="status-item">
-    <span class="label">Parenting:</span> Dad to two small chaos agents
+    <span class="label">Parenting</span> Dad to two small chaos agents
   </div>
   
   <div class="status-item">
-    <span class="label">Moderating:</span> A-Level Computer Science
-  </div>
-  
-  <div class="status-item">
-    <span class="label">Learning:</span> Apple Silicon internals, Rust, more Game Boy
-  </div>
-  
-  <div class="status-item">
-    <span class="label">Location:</span> Nottingham, UK
+    <span class="label">Location</span> Nottingham, UK
   </div>
   
 </div>
@@ -166,57 +163,61 @@
 
 
 <section>
-  <h2>Featured Projects</h2>
-  <div class="featured-grid">
-    
-    <div class="card">
-      <h3>Mushy's Adventure</h3>
-      <div class="meta">2023</div>
-      <p>Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Assembly</span><span class="tech-tag">gbZ80</span><span class="tech-tag">Game Boy</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/mushys_adventure">Source</a>
-        
-      </div>
-    </div>
+  <h2>Featured</h2>
+  <div class="project-list">
     
     <div class="card">
       <h3>tphysics</h3>
       <div class="meta">2023</div>
-      <p>Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.</p>
+      <p class="desc">Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.</p>
       <div class="tech-tags">
         <span class="tech-tag">Python</span><span class="tech-tag">Turtle</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/tphysics">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/tphysics">Source</a>
+        
+        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=6z4ZEE0VqHU">Video</a>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Mushy's Adventure</h3>
+      <div class="meta">2023</div>
+      <p class="desc">Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Assembly</span><span class="tech-tag">gbZ80</span><span class="tech-tag">Game Boy</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/mushys_adventure">Source</a>
+        
+        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=rDdYTNc6fCU">Video</a>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Seasons</h3>
+      <div class="meta">2017</div>
+      <p class="desc">A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/seasons">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/seasons/">Live Demo</a>
         
       </div>
     </div>
     
     <div class="card">
-      <h3>Quest Companion</h3>
-      <div class="meta">2021</div>
-      <p>Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.</p>
+      <h3>CV</h3>
+      <div class="meta">2026</div>
+      <p class="desc">My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.</p>
       <div class="tech-tags">
-        <span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span>
+        <span class="tech-tag">Python</span><span class="tech-tag">Typst</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/quest_companion_android">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Automatron</h3>
-      <div class="meta">2018</div>
-      <p>Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and community levels.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">PHP</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/Automatron">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/cv">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/cv/">Live Demo</a>
         
       </div>
     </div>
@@ -224,320 +225,104 @@
     <div class="card">
       <h3>Binary Assembler Bot</h3>
       <div class="meta">2018</div>
-      <p>Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.</p>
+      <p class="desc">Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.</p>
       <div class="tech-tags">
         <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/bab">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/bab/">Live Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/bab">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/bab/">Live Demo</a>
+        
       </div>
     </div>
     
     <div class="card">
-      <h3>Seasons</h3>
-      <div class="meta">2017</div>
-      <p>A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.</p>
+      <h3>psx2rip</h3>
+      <div class="meta">2026</div>
+      <p class="desc">PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.</p>
       <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Shell</span><span class="tech-tag">Bash</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/seasons">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/seasons/">Live Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/psx2rip">Source</a>
+        
+        
       </div>
     </div>
     
   </div>
 </section>
 
-
-
 <section>
-  <h2>All Projects</h2>
+  <h2>Games</h2>
   <div class="project-list">
-    
-    <div class="card">
-      <h3>psx2rip</h3>
-      <div class="meta">2026</div>
-      <p>PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Shell</span><span class="tech-tag">Bash</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/psx2rip">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>barry-macos-arm</h3>
-      <div class="meta">2026</div>
-      <p>Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver work.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C++</span><span class="tech-tag">Shell</span><span class="tech-tag">Python</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/barry-macos-arm">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Ecoworks Monitoring</h3>
-      <div class="meta">2025</div>
-      <p>Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern web stack.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span><span class="tech-tag">SST</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/ecoworks-monitoring">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>D&D Cipher</h3>
-      <div class="meta">2025</div>
-      <p>Dungeons & Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/dnd-cipher">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/dnd-cipher/">Live Demo</a>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Daikin Connect</h3>
-      <div class="meta">2024</div>
-      <p>Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/daikin-connect">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Unity Audio Game</h3>
-      <div class="meta">2024</div>
-      <p>Audio-first game built in Unity with Wwise integration. Designed for accessibility and non-visual gameplay.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C#</span><span class="tech-tag">Unity</span><span class="tech-tag">Wwise</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/unity_wwise_audio_game">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Lorcana Learner</h3>
-      <div class="meta">2024</div>
-      <p>Deck builder for the Lorcana TCG targeting beginners. Combines a Python prototype with a TypeScript web frontend.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Python</span><span class="tech-tag">Next.js</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/lorcana-learner">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Learnerborn</h3>
-      <div class="meta">2024</div>
-      <p>Lorcana-inspired card game built with Next.js. A personal project exploring card game mechanics.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/learnerborn">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>OCR Repo Fetch</h3>
-      <div class="meta">2024</div>
-      <p>Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Selenium</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/ocr-repo-fetch">Source</a>
-        
-      </div>
-    </div>
     
     <div class="card">
       <h3>Garden of Eden GB</h3>
       <div class="meta">2023</div>
-      <p>Game Boy game built for Global Game Jam 2023 based on the theme Roots.</p>
+      <p class="desc">Game Boy game built for Global Game Jam 2023 based on the theme Roots.</p>
       <div class="tech-tags">
         <span class="tech-tag">Assembly</span><span class="tech-tag">gbZ80</span><span class="tech-tag">Game Boy</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/garden-of-eden-GB">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/garden-of-eden-GB">Source</a>
         
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Career Grid</h3>
-      <div class="meta">2023</div>
-      <p>Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/career_grid">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/career_grid/">Live Demo</a>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Project PPU</h3>
-      <div class="meta">2022</div>
-      <p>Pixel Processing Unit C library for Waveshare 3.5" touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C</span><span class="tech-tag">CMake</span><span class="tech-tag">Raspberry Pi Pico</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/project_ppu">Source</a>
         
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>LMCompile</h3>
-      <div class="meta">2022</div>
-      <p>Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/LMCompile">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Point and Click</h3>
-      <div class="meta">2022</div>
-      <p>Browser-based point and click adventure game built with p5.js.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/pointAndClick">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/pointAndClick/">Live Demo</a>
       </div>
     </div>
     
     <div class="card">
       <h3>Outnumbered</h3>
       <div class="meta">2021</div>
-      <p>Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.</p>
+      <p class="desc">Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.</p>
       <div class="tech-tags">
         <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/outnumberedGame">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/outnumberedGame/">Live Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/outnumberedGame">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/outnumberedGame/">Live Demo</a>
+        
       </div>
     </div>
     
     <div class="card">
       <h3>Automatons</h3>
       <div class="meta">2021</div>
-      <p>Assembly programming puzzle game — learn low-level programming concepts through interactive challenges.</p>
+      <p class="desc">Assembly programming puzzle game where you learn low-level programming concepts through interactive challenges.</p>
       <div class="tech-tags">
         <span class="tech-tag">JavaScript</span><span class="tech-tag">HTML</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/automatons">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/automatons/">Live Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/automatons">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/automatons/">Live Demo</a>
+        
       </div>
     </div>
     
     <div class="card">
       <h3>Skazka</h3>
       <div class="meta">2019</div>
-      <p>Game Boy game built with GBDK in C for Global Game Jam 2019. Features incredible pixel assets and narrative.</p>
+      <p class="desc">Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure.</p>
       <div class="tech-tags">
         <span class="tech-tag">C</span><span class="tech-tag">GBDK</span><span class="tech-tag">Game Boy</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/Skazka">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Skazka">Source</a>
+        
         
       </div>
     </div>
     
     <div class="card">
-      <h3>ShellJS</h3>
-      <div class="meta">2019</div>
-      <p>Terminal emulator personal website — a fake shell in the browser that accepts commands. A creative experiment in web design.</p>
+      <h3>Automatron</h3>
+      <div class="meta">2018</div>
+      <p class="desc">Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and a level editor. Has a PHP backend for community level sharing.</p>
       <div class="tech-tags">
-        <span class="tech-tag">JavaScript</span><span class="tech-tag">CSS</span>
+        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">PHP</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/shellJS">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/shellJS/">Live Demo</a>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Connect Four Trade War</h3>
-      <div class="meta">2019</div>
-      <p>Node.js multiplayer Connect Four with p5.js rendering. Built for the Appoly Birthday Hackathon.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">JavaScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">p5.js</span><span class="tech-tag">Socket.io</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/connectFourTradeWar">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Automatron">Source</a>
         
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>ARpg</h3>
-      <div class="meta">2019</div>
-      <p>ARCore Android app for tabletop RPGs. Uses augmented reality to overlay game elements onto physical spaces.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Java</span><span class="tech-tag">Android</span><span class="tech-tag">ARCore</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/ARpg">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Block Bounce iOS</h3>
-      <div class="meta">2019</div>
-      <p>iOS version of the Block Bounce game built in Swift. Published on the App Store.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Swift</span><span class="tech-tag">iOS</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/block-bounce-ios">Source</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Wedding Web</h3>
-      <div class="meta">2019</div>
-      <p>Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">Vue</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/thebillington/wedding-web">Source</a>
         
       </div>
     </div>
@@ -545,77 +330,188 @@
     <div class="card">
       <h3>90s Steam</h3>
       <div class="meta">2018</div>
-      <p>Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.</p>
+      <p class="desc">Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.</p>
       <div class="tech-tags">
         <span class="tech-tag">JavaScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/guh18">Source</a>
-        <a class="demo-link" href="https://thebillington.github.io/guh18/">Live Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/guh18">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/guh18/">Live Demo</a>
+        
       </div>
     </div>
     
     <div class="card">
       <h3>Vehicle Game</h3>
       <div class="meta">2018</div>
-      <p>OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline.</p>
+      <p class="desc">OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay.</p>
       <div class="tech-tags">
         <span class="tech-tag">C++</span><span class="tech-tag">OpenGL</span><span class="tech-tag">GLSL</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/VehicleGame">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/VehicleGame">Source</a>
+        
+        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=UIOYu7G-LCk">Video</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section>
+  <h2>Apps & Tools</h2>
+  <div class="project-list">
+    
+    <div class="card">
+      <h3>barry-macos-arm</h3>
+      <div class="meta">2026</div>
+      <p class="desc">Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver-level work.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C++</span><span class="tech-tag">Shell</span><span class="tech-tag">Python</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/barry-macos-arm">Source</a>
+        
         
       </div>
     </div>
     
     <div class="card">
-      <h3>Space Invaders</h3>
-      <div class="meta">2018</div>
-      <p>Vanilla Python Space Invaders using Turtle graphics. Part of the 1978 project at Sandwell Academy.</p>
+      <h3>Ecoworks Monitoring</h3>
+      <div class="meta">2025</div>
+      <p class="desc">Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure.</p>
       <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Turtle</span>
+        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span><span class="tech-tag">SST</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/SpaceInvaders">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ecoworks-monitoring">Source</a>
+        
         
       </div>
     </div>
     
     <div class="card">
-      <h3>SnowGlobe</h3>
-      <div class="meta">2018</div>
-      <p>Procedural snow globe animation built with Python Turtle. Generates falling snow and festive scenes.</p>
+      <h3>D&D Cipher</h3>
+      <div class="meta">2025</div>
+      <p class="desc">Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.</p>
       <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Turtle</span>
+        <span class="tech-tag">TypeScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/SnowGlobe">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/dnd-cipher">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/dnd-cipher/">Live Demo</a>
         
       </div>
     </div>
     
     <div class="card">
-      <h3>pyPhys3D</h3>
-      <div class="meta">2017</div>
-      <p>Three-dimensional physics engine built with Pygame and pyOpenGL. Implements basic collision detection on a non-rotated axis.</p>
+      <h3>Daikin Connect</h3>
+      <div class="meta">2024</div>
+      <p class="desc">Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.</p>
       <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Pygame</span><span class="tech-tag">OpenGL</span>
+        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/pyPhys3D">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/daikin-connect">Source</a>
+        
         
       </div>
     </div>
     
     <div class="card">
-      <h3>tPixelArt</h3>
-      <div class="meta">2017</div>
-      <p>Image creator library using Python Turtle to produce pixelated images. Designed for classroom use.</p>
+      <h3>OCR Repo Fetch</h3>
+      <div class="meta">2024</div>
+      <p class="desc">Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.</p>
       <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Turtle</span>
+        <span class="tech-tag">Python</span><span class="tech-tag">Selenium</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/tPixelArt">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ocr-repo-fetch">Source</a>
+        
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Career Grid</h3>
+      <div class="meta">2023</div>
+      <p class="desc">Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/career_grid">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/career_grid/">Live Demo</a>
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Project PPU</h3>
+      <div class="meta">2022</div>
+      <p class="desc">Pixel Processing Unit C library for the Waveshare 3.5 inch touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C</span><span class="tech-tag">CMake</span><span class="tech-tag">Raspberry Pi Pico</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/project_ppu">Source</a>
+        
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>LMCompile</h3>
+      <div class="meta">2022</div>
+      <p class="desc">Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/LMCompile">Source</a>
+        
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Quest Companion</h3>
+      <div class="meta">2021</div>
+      <p class="desc">Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/quest_companion_android">Source</a>
+        
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>ShellJS</h3>
+      <div class="meta">2019</div>
+      <p class="desc">Terminal emulator personal website. A fake shell in the browser that accepts commands. A creative experiment in web design.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">JavaScript</span><span class="tech-tag">CSS</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/shellJS">Source</a>
+        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/shellJS/">Live Demo</a>
+        
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Wedding Web</h3>
+      <div class="meta">2019</div>
+      <p class="desc">Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">Vue</span>
+      </div>
+      <div class="card-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/wedding-web">Source</a>
+        
         
       </div>
     </div>
@@ -623,12 +519,13 @@
     <div class="card">
       <h3>eClassroom</h3>
       <div class="meta">2016</div>
-      <p>Dissertation project — a VLE with adaptive quizzes. Uses a dynamic pathway algorithm to adjust difficulty based on student progress.</p>
+      <p class="desc">Dissertation project. A VLE with adaptive quizzes using a dynamic pathway algorithm to adjust difficulty based on student progress.</p>
       <div class="tech-tags">
         <span class="tech-tag">Java</span><span class="tech-tag">CSS</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/thebillington/eClassroom">Source</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/eClassroom">Source</a>
+        
         
       </div>
     </div>
@@ -638,7 +535,7 @@
 
 
 <footer>
-  Billy Rebecchi &mdash; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a>
+  Billy Rebecchi &middot; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a>
 </footer>
 
   </div>
