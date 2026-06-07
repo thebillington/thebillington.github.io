@@ -13,7 +13,7 @@
   description: Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.
   tech: [Assembly, gbZ80, Game Boy]
   repo: thebillington/mushys_adventure
-  demo: false
+  demo: https://thebillington.github.io/mushys_adventure/
   video: https://www.youtube.com/watch?v=rDdYTNc6fCU
 
 - name: Seasons
@@ -86,7 +86,7 @@
   description: Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure.
   tech: [C, GBDK, Game Boy]
   repo: thebillington/Skazka
-  demo: false
+  demo: https://thebillington.github.io/Skazka/
 
 - name: Garden of Eden GB
   year: 2023
@@ -94,7 +94,7 @@
   description: Game Boy game built for Global Game Jam 2023 based on the theme Roots.
   tech: [Assembly, gbZ80, Game Boy]
   repo: thebillington/garden-of-eden-GB
-  demo: false
+  demo: https://thebillington.github.io/garden-of-eden-GB/
 
 - name: Vehicle Game
   year: 2018
