@@ -13,6 +13,11 @@ links:
   linkedin: thebillington
   cv: https://thebillington.github.io/cv/
 
+seo:
+  description: "Full Stack Engineer & Computer Science Teacher with 20 years building tools to teach Computer Science in schools. Low-level programming advocate, Game Boy developer, and game jam participant."
+  image: /og-image.png
+  url: https://thebillington.co.uk
+
 status:
   - label: "Currently"
     value: "Full Stack Engineer"

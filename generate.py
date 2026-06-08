@@ -19,6 +19,28 @@ def load_yaml(path):
     with open(path) as f:
         return yaml.safe_load(f)
 
+def build_person_schema(profile):
+    seo = profile.get("seo", {})
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": profile["name"],
+        "url": seo.get("url", ""),
+        "image": seo.get("url", "") + seo.get("image", ""),
+        "jobTitle": profile.get("tagline", ""),
+        "description": seo.get("description", ""),
+    }
+    same_as = []
+    links = profile.get("links", {})
+    if github := links.get("github"):
+        same_as.append(f"https://github.com/{github}")
+    if linkedin := links.get("linkedin"):
+        same_as.append(f"https://linkedin.com/in/{linkedin}")
+    if same_as:
+        schema["sameAs"] = same_as
+    return schema
+
+
 def main():
     profile = load_yaml(DATA / "profile.yml")
     projects = load_yaml(DATA / "projects.yml")
@@ -45,6 +67,7 @@ def main():
     html = template.render(
         profile=profile,
         sections=sections,
+        person_schema=build_person_schema(profile),
     )
 
     OUTPUT.mkdir(parents=True, exist_ok=True)
