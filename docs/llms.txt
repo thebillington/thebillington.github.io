@@ -1,0 +1,47 @@
+# Billy Rebecchi
+
+> Full Stack Engineer & Computer Science Teacher with 20 years building tools to teach Computer Science in schools. Low-level programming advocate, Game Boy developer, and game jam participant.
+
+## Canonical
+
+- Portfolio: https://thebillington.co.uk
+- GitHub: https://github.com/thebillington
+- LinkedIn: https://linkedin.com/in/thebillington
+- CV: https://thebillington.github.io/cv/
+- Sponsorship: https://github.com/sponsors/thebillington
+
+## Projects
+
+- **tphysics** (2017): Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming. https://github.com/thebillington/tphysics https://tphysics.uk https://www.youtube.com/watch?v=6z4ZEE0VqHU
+- **Mushy's Adventure** (2023): Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch. https://github.com/thebillington/mushys_adventure https://thebillington.github.io/mushys_adventure/ https://www.youtube.com/watch?v=rDdYTNc6fCU
+- **Seasons** (2017): A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles. https://github.com/thebillington/seasons https://thebillington.github.io/seasons/
+- **CV** (2026): My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF. https://github.com/thebillington/cv https://thebillington.github.io/cv/
+- **Binary Assembler Bot** (2018): Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels. https://github.com/thebillington/bab https://thebillington.github.io/bab/
+- **psx2rip** (2026): PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data. https://github.com/thebillington/psx2rip
+- **Automatron** (2018): Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and a level editor. Has a PHP backend for community level sharing. https://github.com/thebillington/Automatron
+- **Outnumbered** (2021): Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics. https://github.com/thebillington/outnumberedGame https://thebillington.github.io/outnumberedGame/
+- **Automatons** (2021): Assembly programming puzzle game where you learn low-level programming concepts through interactive challenges. https://github.com/thebillington/automatons https://thebillington.github.io/automatons/
+- **90s Steam** (2018): Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games. https://github.com/thebillington/guh18 https://thebillington.github.io/guh18/
+- **Skazka** (2019): Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure. https://github.com/thebillington/Skazka https://thebillington.github.io/Skazka/
+- **Garden of Eden GB** (2023): Game Boy game built for Global Game Jam 2023 based on the theme Roots. https://github.com/thebillington/garden-of-eden-GB https://thebillington.github.io/garden-of-eden-GB/
+- **Vehicle Game** (2018): OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay. https://github.com/thebillington/VehicleGame https://www.youtube.com/watch?v=UIOYu7G-LCk
+- **pydle** (2026): Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support. https://github.com/thebillington/pydle https://pydle.uk
+- **Quest Companion** (2021): Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture. https://github.com/thebillington/quest_companion_android
+- **Ecoworks Monitoring** (2025): Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure. https://github.com/thebillington/ecoworks-monitoring
+- **D&D Cipher** (2025): Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles. https://github.com/thebillington/dnd-cipher https://thebillington.github.io/dnd-cipher/
+- **Daikin Connect** (2024): Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump. https://github.com/thebillington/daikin-connect
+- **Career Grid** (2023): Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data. https://github.com/thebillington/career_grid https://thebillington.github.io/career_grid/
+- **ShellJS** (2019): Terminal emulator personal website. A fake shell in the browser that accepts commands. A creative experiment in web design. https://github.com/thebillington/shellJS https://thebillington.github.io/shellJS/
+- **eClassroom** (2016): Dissertation project. A VLE with adaptive quizzes using a dynamic pathway algorithm to adjust difficulty based on student progress. https://github.com/thebillington/eClassroom
+- **Project PPU** (2022): Pixel Processing Unit C library for the Waveshare 3.5 inch touch screen on Raspberry Pi Pico. Hardware-level graphics rendering. https://github.com/thebillington/project_ppu
+- **Learn Game Boy** (2018): Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals. https://github.com/thebillington/learngameboy https://learngameboy.com/
+- **Wedding Web** (2019): Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages. https://github.com/thebillington/wedding-web
+- **barry-macos-arm** (2026): Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver-level work. https://github.com/thebillington/barry-macos-arm
+- **LMCompile** (2022): Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation. https://github.com/thebillington/LMCompile
+- **OCR Repo Fetch** (2024): Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment. https://github.com/thebillington/ocr-repo-fetch
+
+## Notes
+
+This portfolio lists open-source and personal projects by Billy Rebecchi. Project pages are the canonical source for each project; GitHub repositories contain the code and issues.
+
+Sponsorship is optional and supports maintenance of these free projects.
