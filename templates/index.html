@@ -14,12 +14,11 @@
 <section class="hero" id="top" aria-labelledby="hero-title">
   <p class="eyebrow">{{ profile.tagline }}</p>
   <h1 id="hero-title">{{ profile.name }}</h1>
-  {% if profile.lede %}<p class="lede">{{ profile.lede }}</p>{% endif %}
   <p class="bio">{{ profile.bio }}</p>
 
   <div class="hero-actions">
-    <a class="button button--primary" href="#work">See selected work</a>
-    <a class="button" href="#contact">Get in touch</a>
+    <a class="button button--primary" href="#work">Projects</a>
+    <a class="button" href="#contact">Contact</a>
   </div>
 
   {% if profile.status %}
@@ -37,7 +36,6 @@
 <section class="section" id="work" aria-labelledby="work-title">
   <div class="section-head">
     <h2 id="work-title">{{ sections[0].title }} <span class="section-count" aria-hidden="true">{{ "%02d"|format(sections[0].projects|length) }}</span></h2>
-    <p>{{ sections[0].blurb }}</p>
   </div>
 
   <ol class="card-grid" role="list">
@@ -45,7 +43,6 @@
     <li class="card{% if loop.first %} card--lead{% endif %}">
       <div class="card-top">
         <span class="card-index" aria-hidden="true">{{ "%02d"|format(loop.index) }}</span>
-        {% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}
       </div>
       <h3>{{ p.name }}</h3>
       <div class="year">{{ p.year }}</div>
@@ -65,7 +62,6 @@
 <section class="section" id="{{ section.key }}" aria-labelledby="{{ section.key }}-title">
   <div class="section-head">
     <h2 id="{{ section.key }}-title">{{ section.title }} <span class="section-count" aria-hidden="true">{{ "%02d"|format(section.projects|length) }}</span></h2>
-    <p>{{ section.blurb }}</p>
   </div>
 
   <ul class="project-list" role="list">
@@ -75,7 +71,6 @@
         <div class="row-head">
           <h3>{{ p.name }}</h3>
           <span class="row-year">{{ p.year }}</span>
-          {% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}
         </div>
         <p class="row-desc">{{ p.description }}</p>
         <ul class="tech-tags" aria-label="Technologies used">
@@ -94,7 +89,6 @@
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div>
     <h2 id="contact-title">Get in touch</h2>
-    <p>Happy to talk about teaching tools, low-level programming, games, or a project you could use a hand with. GitHub or LinkedIn is the quickest route.</p>
   </div>
   <ul class="contact-links">
     {% if profile.links.github %}<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ profile.links.github }}" aria-label="GitHub profile (opens in a new tab)">GitHub</a></li>{% endif %}

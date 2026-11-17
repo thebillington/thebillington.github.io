@@ -1,8 +1,7 @@
 - name: Home Assistant Health Bridge
   year: 2026
   category: featured
-  status: Open source
-  description: A free, local-first bridge from Apple Health to Home Assistant. A HACS integration and a SwiftUI companion app read HealthKit on the phone and publish the data to your own instance, with no cloud service in the middle.
+  description: "Apple Health to Home Assistant. A free HACS integration and SwiftUI/HealthKit iOS app."
   tech: [Python, SwiftUI, HealthKit, Home Assistant]
   repo: thebillington/health-assist
   demo: https://healthassist.thebillington.co.uk
@@ -10,17 +9,15 @@
 - name: Steno Start
   year: 2026
   category: featured
-  status: Live
-  description: A guided, offline introduction to stenography. Teaches the 22-key steno keyboard one chord at a time, then moves on to real sentences, and ships with an openly licensed dictionary of 500 beginner words.
-  tech: [JavaScript, Offline-first, Steno]
+  description: "A guided, offline introduction to stenography. Learn the 22-key steno keyboard one chord at a time, then practise real sentences. Free to try, one payment for Pro."
+  tech: [HTML, JavaScript, Steno]
   repo: thebillington/stenostart-site
   demo: https://stenostart.uk
 
 - name: pydle
   year: 2026
   category: featured
-  status: Live
-  description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.
+  description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server. Includes a full turtle graphics environment with animation support.
   tech: [Python, JavaScript, Pyodide]
   repo: thebillington/pydle
   demo: https://pydle.uk
@@ -28,7 +25,6 @@
 - name: tphysics
   year: 2017
   category: featured
-  status: In classrooms
   description: Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.
   tech: [Python, Turtle]
   repo: thebillington/tphysics
@@ -38,7 +34,6 @@
 - name: Mushy's Adventure
   year: 2023
   category: featured
-  status: Released
   description: Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.
   tech: [Assembly, gbZ80, Game Boy]
   repo: thebillington/mushys_adventure
@@ -137,26 +132,23 @@
 - name: No Nonsense Revision
   year: 2026
   category: apps
-  status: Live
-  description: Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. 644 flashcards and 746 exam-style questions, each with an explanation, and no account, ads or connection required.
-  tech: [JavaScript, Offline-first, Education]
+  description: "Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. Full syllabus, clear explanations, offline and one payment."
+  tech: [HTML, CSS]
   repo: thebillington/no-nonsense-revision
   demo: https://nononsenserevision.uk
 
 - name: Video Communities Revisited
   year: 2026
   category: apps
-  status: Research
-  description: Public site for a research project on how physical screen media, from VHS and DVD to rental shops and collectors, formed communities in Britain. Generates a dataset, interactive map and story archive from a private source repository.
-  tech: [Python, Static site, Data]
+  description: "A research project on the role of physical screen media in forming communities in Britain, past and present."
+  tech: [HTML, CSS, JavaScript]
   repo: thebillington/video-communities-revisited-site
   demo: https://thebillington.co.uk/video-communities-revisited-site/
 
-- name: Offers Service
+- name: Offers and Discounts Demo
   year: 2026
   category: apps
-  status: Demo
-  description: "A demo offers and discounts service, built the way it would run in production: a Node and TypeScript API on Lambda, Postgres on RDS, Terraform for the infrastructure, and GitHub Actions for migrations, seeding and deploys."
+  description: "Demo prod application for a discounts provider backend service."
   tech: [TypeScript, AWS, Terraform, Postgres]
   repo: thebillington/offers-service
   demo: false

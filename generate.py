@@ -10,14 +10,9 @@ OUTPUT = ROOT / "docs"
 
 SECTION_ORDER = ["featured", "games", "apps"]
 SECTION_TITLES = {
-    "featured": "Selected work",
+    "featured": "Featured",
     "games": "Games",
     "apps": "Apps & Tools",
-}
-SECTION_BLURBS = {
-    "featured": "The best way in: teaching tools, browser software, and games built close to the metal.",
-    "games": "Game jam entries, experiments and the things I build when I should be asleep.",
-    "apps": "Tools for classrooms, the web and the occasional side quest.",
 }
 SECTION_IDS = {"featured": "work", "games": "games", "apps": "apps"}
 COUNT_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six",
@@ -117,7 +112,6 @@ def main():
         sections.append({
             "key": SECTION_IDS[cat],
             "title": SECTION_TITLES[cat],
-            "blurb": SECTION_BLURBS[cat],
             "count_word": COUNT_WORDS[min(len(items), len(COUNT_WORDS) - 1)],
             "projects": items,
         })

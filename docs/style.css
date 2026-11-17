@@ -347,15 +347,6 @@ main:focus {
   line-height: 0.98;
 }
 
-.hero .lede {
-  max-width: 580px;
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-  line-height: 1.55;
-  color: var(--text);
-  font-weight: 500;
-  text-wrap: pretty;
-}
-
 .hero .bio {
   max-width: 62ch;
   margin-top: 16px;
@@ -465,12 +456,6 @@ main:focus {
   vertical-align: 2px;
 }
 
-.section-head p {
-  max-width: 44ch;
-  color: var(--text-dim);
-  font-size: 0.92rem;
-}
-
 /* ---------------------------------------------------------------
    Featured cards
    --------------------------------------------------------------- */
@@ -534,21 +519,6 @@ main:focus {
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--accent);
-}
-
-.badge {
-  display: inline-block;
-  padding: 2px 9px;
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
 
 .card h3 {
@@ -681,12 +651,7 @@ main:focus {
   color: var(--text-dim);
 }
 
-.project-row .badge {
-  padding: 1px 7px;
-  font-size: 0.6rem;
-}
-
-.row-desc {
+.project-row .row-desc {
   max-width: 74ch;
   margin-top: 5px;
   color: var(--text-dim);
@@ -747,14 +712,6 @@ main:focus {
 
 .contact h2 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
-}
-
-.contact p {
-  max-width: 46ch;
-  margin-top: 6px;
-  color: var(--text-dim);
-  font-size: 0.94rem;
-  text-wrap: pretty;
 }
 
 .contact-links {
