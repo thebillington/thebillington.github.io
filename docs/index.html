@@ -50,6 +50,7 @@
     /* Set the theme before anything paints, so there is no flash. */
     (function () {
       var root = document.documentElement;
+      root.classList.add('js');
       var stored = null;
       try { stored = window.localStorage.getItem('theme'); } catch (e) { /* private mode */ }
       var dark = stored
@@ -96,7 +97,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <div class="container">
       
 <section class="hero" id="top" aria-labelledby="hero-title">
@@ -139,7 +140,7 @@
     <p>The best way in: teaching tools, browser software, and games built close to the metal.</p>
   </div>
 
-  <ol class="card-grid">
+  <ol class="card-grid" role="list">
     
     <li class="card card--lead">
       <div class="card-top">
@@ -489,9 +490,9 @@
           <span class="row-year">2026</span>
           <span class="badge">Demo</span>
         </div>
-        <p class="row-desc">Reference implementation of a discounts offers service, described as infrastructure as code. A small, readable Terraform example of how the API, data and deployment fit together.</p>
+        <p class="row-desc">A demo offers and discounts service, built the way it would run in production: a Node and TypeScript API on Lambda, Postgres on RDS, Terraform for the infrastructure, and GitHub Actions for migrations, seeding and deploys.</p>
         <ul class="tech-tags" aria-label="Technologies used">
-          <li>Terraform</li><li>AWS</li><li>HCL</li>
+          <li>TypeScript</li><li>AWS</li><li>Terraform</li><li>Postgres</li>
         </ul>
       </div>
       <div class="row-links">
@@ -787,7 +788,7 @@
 
 <footer class="site-footer">
   <span>Billy Rebecchi &middot; Nottingham, UK</span>
-  <span><a href="#top">Back to top</a> &middot; Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
+  <span><a href="#top">Back to top</a> &middot; Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io" aria-label="Python + Jinja2 site source on GitHub (opens in a new tab)">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington" aria-label="Sponsor my work on GitHub (opens in a new tab)">Sponsor my work</a></span>
 </footer>
 
     </div>

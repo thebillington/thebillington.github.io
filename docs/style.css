@@ -260,6 +260,11 @@ h3 {
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
+/* Without scripting the toggle cannot work, so do not offer it. */
+html:not(.js) .theme-toggle {
+  display: none;
+}
+
 .theme-toggle:hover {
   color: var(--text);
   border-color: var(--border-strong);
@@ -301,6 +306,10 @@ main {
   background:
     radial-gradient(660px 340px at 80% -60px, var(--accent-soft), transparent 72%)
     no-repeat;
+}
+
+main:focus {
+  outline: none;
 }
 
 .hero {
@@ -897,6 +906,13 @@ footer.site-footer a:hover {
   .facts {
     gap: 16px 36px;
     margin-top: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .eyebrow {
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
   }
 }
 

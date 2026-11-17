@@ -156,8 +156,8 @@
   year: 2026
   category: apps
   status: Demo
-  description: Reference implementation of a discounts offers service, described as infrastructure as code. A small, readable Terraform example of how the API, data and deployment fit together.
-  tech: [Terraform, AWS, HCL]
+  description: "A demo offers and discounts service, built the way it would run in production: a Node and TypeScript API on Lambda, Postgres on RDS, Terraform for the infrastructure, and GitHub Actions for migrations, seeding and deploys."
+  tech: [TypeScript, AWS, Terraform, Postgres]
   repo: thebillington/offers-service
   demo: false
 

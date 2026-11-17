@@ -40,7 +40,7 @@
     <p>{{ sections[0].blurb }}</p>
   </div>
 
-  <ol class="card-grid">
+  <ol class="card-grid" role="list">
     {% for p in sections[0].projects %}
     <li class="card{% if loop.first %} card--lead{% endif %}">
       <div class="card-top">
@@ -107,6 +107,6 @@
 
 <footer class="site-footer">
   <span>{{ profile.name }} &middot; {{ profile.location }}</span>
-  <span><a href="#top">Back to top</a> &middot; Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
+  <span><a href="#top">Back to top</a> &middot; Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io" aria-label="Python + Jinja2 site source on GitHub (opens in a new tab)">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington" aria-label="Sponsor my work on GitHub (opens in a new tab)">Sponsor my work</a></span>
 </footer>
 {% endblock %}
