@@ -36,7 +36,7 @@
 
 <section class="section" id="work" aria-labelledby="work-title">
   <div class="section-head">
-    <h2 id="work-title">{{ sections[0].title }}</h2>
+    <h2 id="work-title">{{ sections[0].title }} <span class="section-count" aria-hidden="true">{{ "%02d"|format(sections[0].projects|length) }}</span></h2>
     <p>{{ sections[0].blurb }}</p>
   </div>
 
@@ -64,7 +64,7 @@
 {% for section in sections[1:] %}
 <section class="section" id="{{ section.key }}" aria-labelledby="{{ section.key }}-title">
   <div class="section-head">
-    <h2 id="{{ section.key }}-title">{{ section.title }}</h2>
+    <h2 id="{{ section.key }}-title">{{ section.title }} <span class="section-count" aria-hidden="true">{{ "%02d"|format(section.projects|length) }}</span></h2>
     <p>{{ section.blurb }}</p>
   </div>
 
@@ -107,6 +107,6 @@
 
 <footer class="site-footer">
   <span>{{ profile.name }} &middot; {{ profile.location }}</span>
-  <span>Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
+  <span><a href="#top">Back to top</a> &middot; Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
 </footer>
 {% endblock %}

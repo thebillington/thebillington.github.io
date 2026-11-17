@@ -95,6 +95,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -107,6 +108,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern", "liga";
+  overflow-wrap: break-word;
 }
 
 ::selection {
@@ -175,6 +177,7 @@ h3 {
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--border);
+  background: var(--bg);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -296,7 +299,7 @@ h3 {
 
 main {
   background:
-    radial-gradient(820px 420px at 78% -40px, var(--accent-soft), transparent 72%)
+    radial-gradient(660px 340px at 80% -60px, var(--accent-soft), transparent 72%)
     no-repeat;
 }
 
@@ -439,6 +442,20 @@ main {
   font-size: clamp(1.35rem, 3vw, 1.65rem);
 }
 
+.section-count {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: 2px;
+}
+
 .section-head p {
   max-width: 44ch;
   color: var(--text-dim);
@@ -476,6 +493,7 @@ main {
 .card--lead {
   grid-column: 1 / -1;
   padding: 30px;
+  background: var(--surface);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 55%, transparent), transparent 90%),
     var(--surface);
@@ -633,6 +651,7 @@ main {
 
 .project-row:hover {
   background: var(--surface-2);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 
 .row-head {
@@ -659,7 +678,7 @@ main {
 }
 
 .row-desc {
-  max-width: 72ch;
+  max-width: 74ch;
   margin-top: 5px;
   color: var(--text-dim);
   font-size: 0.9rem;
@@ -775,6 +794,55 @@ footer.site-footer a:hover {
 /* ---------------------------------------------------------------
    Small screens
    --------------------------------------------------------------- */
+
+/* Lead card: a two-column layout on wide screens, with a detail rail. */
+@media (min-width: 900px) {
+  .card--lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 232px;
+    column-gap: 52px;
+    align-items: start;
+  }
+
+  .card--lead .card-top {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .card--lead h3 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .card--lead .year {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .card--lead .desc {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .card--lead .tech-tags {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-content: flex-start;
+    margin-top: 2px;
+  }
+
+  .card--lead .card-links {
+    grid-column: 2;
+    grid-row: 4;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    align-self: end;
+    margin-top: 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+}
 
 @media (max-width: 760px) {
   :root {
