@@ -16,6 +16,10 @@
   <meta property="og:description" content="{{ profile.seo.description }}">
   <meta property="og:url" content="{{ profile.seo.url }}">
   <meta property="og:image" content="{{ profile.seo.url }}{{ profile.seo.image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Billy Rebecchi, full stack engineer and computer science teacher, with nine screenshots of his projects">
   <meta property="og:site_name" content="{{ profile.name }}">
   <meta property="og:locale" content="en_GB">
 
@@ -23,6 +27,7 @@
   <meta name="twitter:title" content="{{ profile.name }}">
   <meta name="twitter:description" content="{{ profile.seo.description }}">
   <meta name="twitter:image" content="{{ profile.seo.url }}{{ profile.seo.image }}">
+  <meta name="twitter:image:alt" content="Billy Rebecchi, full stack engineer and computer science teacher, with nine screenshots of his projects">
 
   <script type="application/ld+json">
 {{ person_schema | tojson(indent=2) }}
