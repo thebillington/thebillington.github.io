@@ -1,6 +1,34 @@
+- name: Home Assistant Health Bridge
+  year: 2026
+  category: featured
+  status: Open source
+  description: A free, local-first bridge from Apple Health to Home Assistant. A HACS integration and a SwiftUI companion app read HealthKit on the phone and publish the data to your own instance, with no cloud service in the middle.
+  tech: [Python, SwiftUI, HealthKit, Home Assistant]
+  repo: thebillington/health-assist
+  demo: https://healthassist.thebillington.co.uk
+
+- name: Steno Start
+  year: 2026
+  category: featured
+  status: Live
+  description: A guided, offline introduction to stenography. Teaches the 22-key steno keyboard one chord at a time, then moves on to real sentences, and ships with an openly licensed dictionary of 500 beginner words.
+  tech: [JavaScript, Offline-first, Steno]
+  repo: thebillington/stenostart-site
+  demo: https://stenostart.uk
+
+- name: pydle
+  year: 2026
+  category: featured
+  status: Live
+  description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.
+  tech: [Python, JavaScript, Pyodide]
+  repo: thebillington/pydle
+  demo: https://pydle.uk
+
 - name: tphysics
   year: 2017
   category: featured
+  status: In classrooms
   description: Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.
   tech: [Python, Turtle]
   repo: thebillington/tphysics
@@ -10,6 +38,7 @@
 - name: Mushy's Adventure
   year: 2023
   category: featured
+  status: Released
   description: Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.
   tech: [Assembly, gbZ80, Game Boy]
   repo: thebillington/mushys_adventure
@@ -18,7 +47,7 @@
 
 - name: Seasons
   year: 2017
-  category: featured
+  category: games
   description: A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.
   tech: [p5.js, JavaScript]
   repo: thebillington/seasons
@@ -26,7 +55,7 @@
 
 - name: CV
   year: 2026
-  category: featured
+  category: apps
   description: My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.
   tech: [Python, Typst]
   repo: thebillington/cv
@@ -34,7 +63,7 @@
 
 - name: Binary Assembler Bot
   year: 2018
-  category: featured
+  category: apps
   description: Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.
   tech: [p5.js, JavaScript]
   repo: thebillington/bab
@@ -42,7 +71,7 @@
 
 - name: psx2rip
   year: 2026
-  category: featured
+  category: apps
   description: PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.
   tech: [Shell, Bash]
   repo: thebillington/psx2rip
@@ -105,13 +134,32 @@
   demo: false
   video: https://www.youtube.com/watch?v=UIOYu7G-LCk
 
-- name: pydle
+- name: No Nonsense Revision
   year: 2026
   category: apps
-  description: Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.
-  tech: [Python, JavaScript, Pyodide]
-  repo: thebillington/pydle
-  demo: https://pydle.uk
+  status: Live
+  description: Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. 644 flashcards and 746 exam-style questions, each with an explanation, and no account, ads or connection required.
+  tech: [JavaScript, Offline-first, Education]
+  repo: thebillington/no-nonsense-revision
+  demo: https://nononsenserevision.uk
+
+- name: Video Communities Revisited
+  year: 2026
+  category: apps
+  status: Research
+  description: Public site for a research project on how physical screen media, from VHS and DVD to rental shops and collectors, formed communities in Britain. Generates a dataset, interactive map and story archive from a private source repository.
+  tech: [Python, Static site, Data]
+  repo: thebillington/video-communities-revisited-site
+  demo: https://thebillington.co.uk/video-communities-revisited-site/
+
+- name: Offers Service
+  year: 2026
+  category: apps
+  status: Demo
+  description: Reference implementation of a discounts offers service, described as infrastructure as code. A small, readable Terraform example of how the API, data and deployment fit together.
+  tech: [Terraform, AWS, HCL]
+  repo: thebillington/offers-service
+  demo: false
 
 - name: Quest Companion
   year: 2021

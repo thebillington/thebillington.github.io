@@ -1,60 +1,112 @@
 {% extends "base.html" %}
 
+{% macro external_arrow() -%}
+<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+{%- endmacro %}
+
+{% macro project_links(p, classes="") -%}
+  <a class="{{ classes }}" target="_blank" rel="noopener noreferrer" href="https://github.com/{{ p.repo }}" aria-label="Source code for {{ p.name }} on GitHub (opens in a new tab)">Source{{ external_arrow() }}</a>
+  {% if p.demo %}<a class="{{ classes }} is-demo" target="_blank" rel="noopener noreferrer" href="{{ p.demo }}" aria-label="Live demo of {{ p.name }} (opens in a new tab)">Live demo{{ external_arrow() }}</a>{% endif %}
+  {% if p.video %}<a class="{{ classes }} is-video" target="_blank" rel="noopener noreferrer" href="{{ p.video }}" aria-label="Video of {{ p.name }} (opens in a new tab)">Video{{ external_arrow() }}</a>{% endif %}
+{%- endmacro %}
+
 {% block content %}
-<header>
-  <h1>{{ profile.name }}</h1>
-  <div class="tagline">{{ profile.tagline }}</div>
-  <div class="bio">{{ profile.bio }}</div>
-  <div class="links">
-    {% if profile.links.github %}
-      <a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ profile.links.github }}">GitHub</a>
-    {% endif %}
-    {% if profile.links.linkedin %}
-      <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/{{ profile.links.linkedin }}">LinkedIn</a>
-    {% endif %}
-    {% if profile.links.cv %}
-      <a target="_blank" rel="noopener noreferrer" href="{{ profile.links.cv }}">CV</a>
-    {% endif %}
-    {% if profile.links.email %}
-      <a href="mailto:{{ profile.links.email }}">Email</a>
-    {% endif %}
-  </div>
-</header>
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <p class="eyebrow">{{ profile.tagline }}</p>
+  <h1 id="hero-title">{{ profile.name }}</h1>
+  {% if profile.lede %}<p class="lede">{{ profile.lede }}</p>{% endif %}
+  <p class="bio">{{ profile.bio }}</p>
 
-{% if profile.status %}
-<div class="status-grid">
-  {% for item in profile.status %}
-  <div class="status-item">
-    <span class="label">{{ item.label }}</span> {{ item.value }}
+  <div class="hero-actions">
+    <a class="button button--primary" href="#work">See selected work</a>
+    <a class="button" href="#contact">Get in touch</a>
   </div>
-  {% endfor %}
-</div>
-{% endif %}
 
-{% for section in sections %}
-<section>
-  <h2>{{ section.title }}</h2>
-  <div class="project-list">
-    {% for p in section.projects %}
-    <div class="card">
-      <h3>{{ p.name }}</h3>
-      <div class="meta">{{ p.year }}</div>
-      <p class="desc">{{ p.description }}</p>
-      <div class="tech-tags">
-        {% for t in p.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ p.repo }}">Source</a>
-        {% if p.demo %}<a target="_blank" rel="noopener noreferrer" class="demo-link" href="{{ p.demo }}">Live Demo</a>{% endif %}
-        {% if p.video %}<a target="_blank" rel="noopener noreferrer" class="video-link" href="{{ p.video }}">Video</a>{% endif %}
-      </div>
+  {% if profile.status %}
+  <dl class="facts">
+    {% for item in profile.status %}
+    <div class="fact">
+      <dt>{{ item.label }}</dt>
+      <dd>{{ item.value }}</dd>
     </div>
     {% endfor %}
+  </dl>
+  {% endif %}
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="section-head">
+    <h2 id="work-title">{{ sections[0].title }}</h2>
+    <p>{{ sections[0].blurb }}</p>
   </div>
+
+  <ol class="card-grid">
+    {% for p in sections[0].projects %}
+    <li class="card{% if loop.first %} card--lead{% endif %}">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">{{ "%02d"|format(loop.index) }}</span>
+        {% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}
+      </div>
+      <h3>{{ p.name }}</h3>
+      <div class="year">{{ p.year }}</div>
+      <p class="desc">{{ p.description }}</p>
+      <ul class="tech-tags" aria-label="Technologies used">
+        {% for t in p.tech %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+      <div class="card-links">
+        {{ project_links(p) }}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+{% for section in sections[1:] %}
+<section class="section" id="{{ section.key }}" aria-labelledby="{{ section.key }}-title">
+  <div class="section-head">
+    <h2 id="{{ section.key }}-title">{{ section.title }}</h2>
+    <p>{{ section.blurb }}</p>
+  </div>
+
+  <ul class="project-list" role="list">
+    {% for p in section.projects %}
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>{{ p.name }}</h3>
+          <span class="row-year">{{ p.year }}</span>
+          {% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}
+        </div>
+        <p class="row-desc">{{ p.description }}</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          {% for t in p.tech %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div class="row-links">
+        {{ project_links(p) }}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
 </section>
 {% endfor %}
 
-<footer>
-  {{ profile.name }} &middot; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a href="https://github.com/sponsors/thebillington">Sponsor my work</a>
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div>
+    <h2 id="contact-title">Get in touch</h2>
+    <p>Happy to talk about teaching tools, low-level programming, games, or a project you could use a hand with. GitHub or LinkedIn is the quickest route.</p>
+  </div>
+  <ul class="contact-links">
+    {% if profile.links.github %}<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ profile.links.github }}" aria-label="GitHub profile (opens in a new tab)">GitHub</a></li>{% endif %}
+    {% if profile.links.linkedin %}<li><a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/{{ profile.links.linkedin }}" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a></li>{% endif %}
+    {% if profile.links.cv %}<li><a target="_blank" rel="noopener noreferrer" href="{{ profile.links.cv }}" aria-label="CV (opens in a new tab)">CV</a></li>{% endif %}
+    {% if profile.links.email %}<li><a href="mailto:{{ profile.links.email }}">Email</a></li>{% endif %}
+    <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington" aria-label="Sponsor my work on GitHub (opens in a new tab)">Sponsor</a></li>
+  </ul>
+</section>
+
+<footer class="site-footer">
+  <span>{{ profile.name }} &middot; {{ profile.location }}</span>
+  <span>Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
 </footer>
 {% endblock %}

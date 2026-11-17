@@ -10,10 +10,18 @@ OUTPUT = ROOT / "docs"
 
 SECTION_ORDER = ["featured", "games", "apps"]
 SECTION_TITLES = {
-    "featured": "Featured",
+    "featured": "Selected work",
     "games": "Games",
     "apps": "Apps & Tools",
 }
+SECTION_BLURBS = {
+    "featured": "The best way in: teaching tools, browser software, and games built close to the metal.",
+    "games": "Game jam entries, experiments and the things I build when I should be asleep.",
+    "apps": "Tools for classrooms, the web and the occasional side quest.",
+}
+SECTION_IDS = {"featured": "work", "games": "games", "apps": "apps"}
+COUNT_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six",
+               "Seven", "Eight", "Nine", "Ten"]
 
 def load_yaml(path):
     with open(path) as f:
@@ -107,8 +115,10 @@ def main():
         if cat != "featured":
             items.sort(key=lambda p: p["year"], reverse=True)
         sections.append({
-            "key": cat,
+            "key": SECTION_IDS[cat],
             "title": SECTION_TITLES[cat],
+            "blurb": SECTION_BLURBS[cat],
+            "count_word": COUNT_WORDS[min(len(items), len(COUNT_WORDS) - 1)],
             "projects": items,
         })
 
@@ -124,6 +134,7 @@ def main():
     OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / "index.html").write_text(html)
     (OUTPUT / "llms.txt").write_text(build_llms_txt(profile, projects))
+    (OUTPUT / "style.css").write_text((TEMPLATES / "style.css").read_text())
 
     base = "https://thebillington.co.uk"
     urls = [f"{base}/", f"{base}/cv/"]
@@ -166,6 +177,7 @@ def main():
         "Sitemap: https://thebillington.co.uk/sitemap.xml\n"
     )
     print(f"Generated {OUTPUT / 'index.html'}")
+    print(f"Generated {OUTPUT / 'style.css'}")
     print(f"Generated {OUTPUT / 'llms.txt'}")
     print(f"Generated {OUTPUT / 'sitemap.xml'} and {OUTPUT / 'robots.txt'}")
 

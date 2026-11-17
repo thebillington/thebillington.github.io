@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Full Stack Engineer & Computer Science Teacher with 20 years building tools to teach Computer Science in schools. Low-level programming advocate, Game Boy developer, and game jam participant.">
   <meta name="author" content="Billy Rebecchi">
-  <meta name="theme-color" content="#0d1117">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://thebillington.co.uk">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -45,569 +46,799 @@
 }
   </script>
 
+  <script>
+    /* Set the theme before anything paints, so there is no flash. */
+    (function () {
+      var root = document.documentElement;
+      var stored = null;
+      try { stored = window.localStorage.getItem('theme'); } catch (e) { /* private mode */ }
+      var dark = stored
+        ? stored === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) { meta.setAttribute('content', dark ? '#0c1016' : '#f6f3ec'); }
+    })();
+  </script>
+
   <title>Billy Rebecchi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --text-dim: #8b949e;
-      --accent: #58a6ff;
-      --accent-dim: #1f6feb;
-      --green: #3fb950;
-      --orange: #d29922;
-      --pink: #f778ba;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1, h2, h3 { font-weight: 600; line-height: 1.3; }
-
-    header {
-      padding: 64px 0 48px;
-      border-bottom: 1px solid var(--border);
-    }
-    header h1 { font-size: 2.5rem; margin-bottom: 8px; }
-    header .tagline { font-size: 1.15rem; color: var(--text-dim); }
-    header .bio { margin: 16px 0 24px; color: var(--text-dim); }
-    .links { display: flex; gap: 16px; flex-wrap: wrap; }
-    .links a {
-      color: var(--text-dim);
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    .links a:hover { color: var(--accent); }
-
-    .status-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 32px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .status-item { font-size: 0.875rem; }
-    .status-item .label { color: var(--text-dim); }
-    .status-item .label::after { content: ":"; }
-
-    section { padding: 40px 0; }
-    section h2 {
-      font-size: 1.25rem;
-      color: var(--text-dim);
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      transition: border-color 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover { border-color: var(--accent-dim); }
-    .card h3 { font-size: 1rem; margin-bottom: 4px; }
-    .card .meta { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px; }
-    .card .desc { font-size: 0.875rem; color: var(--text-dim); flex: 1; }
-    .card .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tech-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: var(--bg);
-      color: var(--accent);
-      border: 1px solid var(--border);
-    }
-    .card-links { margin-top: 12px; display: flex; gap: 12px; }
-    .card-links a { font-size: 0.8rem; font-weight: 500; }
-    .card-links .demo-link { color: var(--green); }
-    .card-links .video-link { color: var(--pink); }
-
-    .project-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-dim);
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 640px) {
-      header { padding: 40px 0 32px; }
-      header h1 { font-size: 1.75rem; }
-      .featured-grid, .project-list { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    
-<header>
-  <h1>Billy Rebecchi</h1>
-  <div class="tagline">Full Stack Engineer & Computer Science Teacher</div>
-  <div class="bio">I've been building for 20 years and am a big fan of reinventing the wheel; how else would people learn to build wheels? I've spent the last 10 years building tools to help teach Computer Science in school and participating in game jams. I'm a huge proponent of low-level first principles and believe we should be teaching digital logic and Assembly in classrooms before ever touching higher level languages.
-</div>
-  <div class="links">
-    
-      <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington">GitHub</a>
-    
-    
-      <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/thebillington">LinkedIn</a>
-    
-    
-      <a target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/cv/">CV</a>
-    
-    
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="monogram" href="#top">
+        <span aria-hidden="true">BR<span class="dot">.</span></span>
+        <span class="sr-only">Back to top</span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <p class="eyebrow">Full Stack Engineer & Computer Science Teacher</p>
+  <h1 id="hero-title">Billy Rebecchi</h1>
+  <p class="lede">I build tools that make computing feel less like magic — classroom game engines, Python in the browser, and the occasional Game Boy cartridge.</p>
+  <p class="bio">I've been building for 20 years and am a big fan of reinventing the wheel; how else would people learn to build wheels? I've spent the last 10 years building tools to help teach Computer Science in school and participating in game jams. I'm a huge proponent of low-level first principles and believe we should be teaching digital logic and Assembly in classrooms before ever touching higher level languages.
+</p>
+
+  <div class="hero-actions">
+    <a class="button button--primary" href="#work">See selected work</a>
+    <a class="button" href="#contact">Get in touch</a>
   </div>
-</header>
 
-
-<div class="status-grid">
   
-  <div class="status-item">
-    <span class="label">Currently</span> Full Stack Engineer
-  </div>
+  <dl class="facts">
+    
+    <div class="fact">
+      <dt>Currently</dt>
+      <dd>Full Stack Engineer</dd>
+    </div>
+    
+    <div class="fact">
+      <dt>Parenting</dt>
+      <dd>Dad to two small chaos agents</dd>
+    </div>
+    
+    <div class="fact">
+      <dt>Location</dt>
+      <dd>Nottingham, UK</dd>
+    </div>
+    
+  </dl>
   
-  <div class="status-item">
-    <span class="label">Parenting</span> Dad to two small chaos agents
-  </div>
-  
-  <div class="status-item">
-    <span class="label">Location</span> Nottingham, UK
-  </div>
-  
-</div>
-
-
-
-<section>
-  <h2>Featured</h2>
-  <div class="project-list">
-    
-    <div class="card">
-      <h3>tphysics</h3>
-      <div class="meta">2017</div>
-      <p class="desc">Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Turtle</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/tphysics">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://tphysics.uk">Live Demo</a>
-        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=6z4ZEE0VqHU">Video</a>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Mushy's Adventure</h3>
-      <div class="meta">2023</div>
-      <p class="desc">Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Assembly</span><span class="tech-tag">gbZ80</span><span class="tech-tag">Game Boy</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/mushys_adventure">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/mushys_adventure/">Live Demo</a>
-        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=rDdYTNc6fCU">Video</a>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Seasons</h3>
-      <div class="meta">2017</div>
-      <p class="desc">A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/seasons">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/seasons/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>CV</h3>
-      <div class="meta">2026</div>
-      <p class="desc">My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Typst</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/cv">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/cv/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Binary Assembler Bot</h3>
-      <div class="meta">2018</div>
-      <p class="desc">Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/bab">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/bab/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>psx2rip</h3>
-      <div class="meta">2026</div>
-      <p class="desc">PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Shell</span><span class="tech-tag">Bash</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/psx2rip">Source</a>
-        
-        
-      </div>
-    </div>
-    
-  </div>
 </section>
 
-<section>
-  <h2>Games</h2>
-  <div class="project-list">
-    
-    <div class="card">
-      <h3>Garden of Eden GB</h3>
-      <div class="meta">2023</div>
-      <p class="desc">Game Boy game built for Global Game Jam 2023 based on the theme Roots.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Assembly</span><span class="tech-tag">gbZ80</span><span class="tech-tag">Game Boy</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/garden-of-eden-GB">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/garden-of-eden-GB/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Outnumbered</h3>
-      <div class="meta">2021</div>
-      <p class="desc">Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/outnumberedGame">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/outnumberedGame/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Automatons</h3>
-      <div class="meta">2021</div>
-      <p class="desc">Assembly programming puzzle game where you learn low-level programming concepts through interactive challenges.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">JavaScript</span><span class="tech-tag">HTML</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/automatons">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/automatons/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Skazka</h3>
-      <div class="meta">2019</div>
-      <p class="desc">Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C</span><span class="tech-tag">GBDK</span><span class="tech-tag">Game Boy</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Skazka">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/Skazka/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Automatron</h3>
-      <div class="meta">2018</div>
-      <p class="desc">Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and a level editor. Has a PHP backend for community level sharing.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">PHP</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Automatron">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>90s Steam</h3>
-      <div class="meta">2018</div>
-      <p class="desc">Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">JavaScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/guh18">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/guh18/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Vehicle Game</h3>
-      <div class="meta">2018</div>
-      <p class="desc">OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C++</span><span class="tech-tag">OpenGL</span><span class="tech-tag">GLSL</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/VehicleGame">Source</a>
-        
-        <a target="_blank" rel="noopener noreferrer" class="video-link" href="https://www.youtube.com/watch?v=UIOYu7G-LCk">Video</a>
-      </div>
-    </div>
-    
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="section-head">
+    <h2 id="work-title">Selected work</h2>
+    <p>The best way in: teaching tools, browser software, and games built close to the metal.</p>
   </div>
-</section>
 
-<section>
-  <h2>Apps & Tools</h2>
-  <div class="project-list">
+  <ol class="card-grid">
     
-    <div class="card">
+    <li class="card card--lead">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">01</span>
+        <span class="badge">Open source</span>
+      </div>
+      <h3>Home Assistant Health Bridge</h3>
+      <div class="year">2026</div>
+      <p class="desc">A free, local-first bridge from Apple Health to Home Assistant. A HACS integration and a SwiftUI companion app read HealthKit on the phone and publish the data to your own instance, with no cloud service in the middle.</p>
+      <ul class="tech-tags" aria-label="Technologies used">
+        <li>Python</li><li>SwiftUI</li><li>HealthKit</li><li>Home Assistant</li>
+      </ul>
+      <div class="card-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/health-assist" aria-label="Source code for Home Assistant Health Bridge on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://healthassist.thebillington.co.uk" aria-label="Live demo of Home Assistant Health Bridge (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="card">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">02</span>
+        <span class="badge">Live</span>
+      </div>
+      <h3>Steno Start</h3>
+      <div class="year">2026</div>
+      <p class="desc">A guided, offline introduction to stenography. Teaches the 22-key steno keyboard one chord at a time, then moves on to real sentences, and ships with an openly licensed dictionary of 500 beginner words.</p>
+      <ul class="tech-tags" aria-label="Technologies used">
+        <li>JavaScript</li><li>Offline-first</li><li>Steno</li>
+      </ul>
+      <div class="card-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/stenostart-site" aria-label="Source code for Steno Start on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://stenostart.uk" aria-label="Live demo of Steno Start (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="card">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">03</span>
+        <span class="badge">Live</span>
+      </div>
       <h3>pydle</h3>
-      <div class="meta">2026</div>
+      <div class="year">2026</div>
       <p class="desc">Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server — includes a full turtle graphics environment with animation support.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Pyodide</span>
-      </div>
+      <ul class="tech-tags" aria-label="Technologies used">
+        <li>Python</li><li>JavaScript</li><li>Pyodide</li>
+      </ul>
       <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/pydle">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://pydle.uk">Live Demo</a>
-        
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/pydle" aria-label="Source code for pydle on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://pydle.uk" aria-label="Live demo of pydle (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
       </div>
-    </div>
+    </li>
     
-    <div class="card">
-      <h3>barry-macos-arm</h3>
-      <div class="meta">2026</div>
-      <p class="desc">Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver-level work.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C++</span><span class="tech-tag">Shell</span><span class="tech-tag">Python</span>
+    <li class="card">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">04</span>
+        <span class="badge">In classrooms</span>
       </div>
+      <h3>tphysics</h3>
+      <div class="year">2017</div>
+      <p class="desc">Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming.</p>
+      <ul class="tech-tags" aria-label="Technologies used">
+        <li>Python</li><li>Turtle</li>
+      </ul>
       <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/barry-macos-arm">Source</a>
-        
-        
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/tphysics" aria-label="Source code for tphysics on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://tphysics.uk" aria-label="Live demo of tphysics (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-video" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=6z4ZEE0VqHU" aria-label="Video of tphysics (opens in a new tab)">Video<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-    </div>
+    </li>
     
-    <div class="card">
-      <h3>Ecoworks Monitoring</h3>
-      <div class="meta">2025</div>
-      <p class="desc">Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span><span class="tech-tag">SST</span>
+    <li class="card">
+      <div class="card-top">
+        <span class="card-index" aria-hidden="true">05</span>
+        <span class="badge">Released</span>
       </div>
+      <h3>Mushy's Adventure</h3>
+      <div class="year">2023</div>
+      <p class="desc">Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch.</p>
+      <ul class="tech-tags" aria-label="Technologies used">
+        <li>Assembly</li><li>gbZ80</li><li>Game Boy</li>
+      </ul>
       <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ecoworks-monitoring">Source</a>
-        
-        
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/mushys_adventure" aria-label="Source code for Mushy's Adventure on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/mushys_adventure/" aria-label="Live demo of Mushy's Adventure (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-video" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=rDdYTNc6fCU" aria-label="Video of Mushy's Adventure (opens in a new tab)">Video<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-    </div>
+    </li>
     
-    <div class="card">
-      <h3>D&D Cipher</h3>
-      <div class="meta">2025</div>
-      <p class="desc">Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/dnd-cipher">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/dnd-cipher/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Daikin Connect</h3>
-      <div class="meta">2024</div>
-      <p class="desc">Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">TypeScript</span><span class="tech-tag">Next.js</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/daikin-connect">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>OCR Repo Fetch</h3>
-      <div class="meta">2024</div>
-      <p class="desc">Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Selenium</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ocr-repo-fetch">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Career Grid</h3>
-      <div class="meta">2023</div>
-      <p class="desc">Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">p5.js</span><span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/career_grid">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/career_grid/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Project PPU</h3>
-      <div class="meta">2022</div>
-      <p class="desc">Pixel Processing Unit C library for the Waveshare 3.5 inch touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C</span><span class="tech-tag">CMake</span><span class="tech-tag">Raspberry Pi Pico</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/project_ppu">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>LMCompile</h3>
-      <div class="meta">2022</div>
-      <p class="desc">Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/LMCompile">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Quest Companion</h3>
-      <div class="meta">2021</div>
-      <p class="desc">Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/quest_companion_android">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>ShellJS</h3>
-      <div class="meta">2019</div>
-      <p class="desc">Terminal emulator personal website. A fake shell in the browser that accepts commands. A creative experiment in web design.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">JavaScript</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/shellJS">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://thebillington.github.io/shellJS/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Wedding Web</h3>
-      <div class="meta">2019</div>
-      <p class="desc">Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">Vue</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/wedding-web">Source</a>
-        
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>Learn Game Boy</h3>
-      <div class="meta">2018</div>
-      <p class="desc">Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span><span class="tech-tag">Jinja2</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/learngameboy">Source</a>
-        <a target="_blank" rel="noopener noreferrer" class="demo-link" href="https://learngameboy.com/">Live Demo</a>
-        
-      </div>
-    </div>
-    
-    <div class="card">
-      <h3>eClassroom</h3>
-      <div class="meta">2016</div>
-      <p class="desc">Dissertation project. A VLE with adaptive quizzes using a dynamic pathway algorithm to adjust difficulty based on student progress.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Java</span><span class="tech-tag">CSS</span>
-      </div>
-      <div class="card-links">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/eClassroom">Source</a>
-        
-        
-      </div>
-    </div>
-    
-  </div>
+  </ol>
 </section>
 
 
-<footer>
-  Billy Rebecchi &middot; built with <a href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a href="https://github.com/sponsors/thebillington">Sponsor my work</a>
+<section class="section" id="games" aria-labelledby="games-title">
+  <div class="section-head">
+    <h2 id="games-title">Games</h2>
+    <p>Game jam entries, experiments and the things I build when I should be asleep.</p>
+  </div>
+
+  <ul class="project-list" role="list">
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Garden of Eden GB</h3>
+          <span class="row-year">2023</span>
+          
+        </div>
+        <p class="row-desc">Game Boy game built for Global Game Jam 2023 based on the theme Roots.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Assembly</li><li>gbZ80</li><li>Game Boy</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/garden-of-eden-GB" aria-label="Source code for Garden of Eden GB on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/garden-of-eden-GB/" aria-label="Live demo of Garden of Eden GB (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Outnumbered</h3>
+          <span class="row-year">2021</span>
+          
+        </div>
+        <p class="row-desc">Fast-paced aim trainer built in 48 hours for Ludum Dare 40. Fight waves of enemies with custom collision physics.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>p5.js</li><li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/outnumberedGame" aria-label="Source code for Outnumbered on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/outnumberedGame/" aria-label="Live demo of Outnumbered (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Automatons</h3>
+          <span class="row-year">2021</span>
+          
+        </div>
+        <p class="row-desc">Assembly programming puzzle game where you learn low-level programming concepts through interactive challenges.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>JavaScript</li><li>HTML</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/automatons" aria-label="Source code for Automatons on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/automatons/" aria-label="Live demo of Automatons (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Skazka</h3>
+          <span class="row-year">2019</span>
+          
+        </div>
+        <p class="row-desc">Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>C</li><li>GBDK</li><li>Game Boy</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Skazka" aria-label="Source code for Skazka on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/Skazka/" aria-label="Live demo of Skazka (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Automatron</h3>
+          <span class="row-year">2018</span>
+          
+        </div>
+        <p class="row-desc">Factory-logic puzzle game built for Global Game Jam 2018. Create workers to move packages across the factory floor with campaign, tutorials and a level editor. Has a PHP backend for community level sharing.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>p5.js</li><li>JavaScript</li><li>PHP</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/Automatron" aria-label="Source code for Automatron on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>90s Steam</h3>
+          <span class="row-year">2018</span>
+          
+        </div>
+        <p class="row-desc">Retro-styled Steam client parody built for the Great Uni Hack 2018. A modern take on a 90s game portal with multiple playable games.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>JavaScript</li><li>HTML</li><li>CSS</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/guh18" aria-label="Source code for 90s Steam on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/guh18/" aria-label="Live demo of 90s Steam (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Vehicle Game</h3>
+          <span class="row-year">2018</span>
+          
+        </div>
+        <p class="row-desc">OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>C++</li><li>OpenGL</li><li>GLSL</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/VehicleGame" aria-label="Source code for Vehicle Game on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  <a class=" is-video" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=UIOYu7G-LCk" aria-label="Video of Vehicle Game (opens in a new tab)">Video<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Seasons</h3>
+          <span class="row-year">2017</span>
+          
+        </div>
+        <p class="row-desc">A vibrant time-travel platformer built in 48 hours for the Games Plus Jam. Travel through summer, autumn, winter and spring to solve puzzles.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>p5.js</li><li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/seasons" aria-label="Source code for Seasons on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/seasons/" aria-label="Live demo of Seasons (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+  </ul>
+</section>
+
+<section class="section" id="apps" aria-labelledby="apps-title">
+  <div class="section-head">
+    <h2 id="apps-title">Apps & Tools</h2>
+    <p>Tools for classrooms, the web and the occasional side quest.</p>
+  </div>
+
+  <ul class="project-list" role="list">
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>CV</h3>
+          <span class="row-year">2026</span>
+          
+        </div>
+        <p class="row-desc">My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Python</li><li>Typst</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/cv" aria-label="Source code for CV on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/cv/" aria-label="Live demo of CV (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>psx2rip</h3>
+          <span class="row-year">2026</span>
+          
+        </div>
+        <p class="row-desc">PSX and PS2 disc rip utility for macOS Apple Silicon. Extracts and preserves PlayStation game data.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Shell</li><li>Bash</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/psx2rip" aria-label="Source code for psx2rip on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>No Nonsense Revision</h3>
+          <span class="row-year">2026</span>
+          <span class="badge">Live</span>
+        </div>
+        <p class="row-desc">Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. 644 flashcards and 746 exam-style questions, each with an explanation, and no account, ads or connection required.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>JavaScript</li><li>Offline-first</li><li>Education</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/no-nonsense-revision" aria-label="Source code for No Nonsense Revision on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://nononsenserevision.uk" aria-label="Live demo of No Nonsense Revision (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Video Communities Revisited</h3>
+          <span class="row-year">2026</span>
+          <span class="badge">Research</span>
+        </div>
+        <p class="row-desc">Public site for a research project on how physical screen media, from VHS and DVD to rental shops and collectors, formed communities in Britain. Generates a dataset, interactive map and story archive from a private source repository.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Python</li><li>Static site</li><li>Data</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/video-communities-revisited-site" aria-label="Source code for Video Communities Revisited on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.co.uk/video-communities-revisited-site/" aria-label="Live demo of Video Communities Revisited (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Offers Service</h3>
+          <span class="row-year">2026</span>
+          <span class="badge">Demo</span>
+        </div>
+        <p class="row-desc">Reference implementation of a discounts offers service, described as infrastructure as code. A small, readable Terraform example of how the API, data and deployment fit together.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Terraform</li><li>AWS</li><li>HCL</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/offers-service" aria-label="Source code for Offers Service on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>barry-macos-arm</h3>
+          <span class="row-year">2026</span>
+          
+        </div>
+        <p class="row-desc">Interface software for the Blackberry handheld, ported to Apple Silicon Mac. Reverse engineering and driver-level work.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>C++</li><li>Shell</li><li>Python</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/barry-macos-arm" aria-label="Source code for barry-macos-arm on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Ecoworks Monitoring</h3>
+          <span class="row-year">2025</span>
+          
+        </div>
+        <p class="row-desc">Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>TypeScript</li><li>Next.js</li><li>SST</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ecoworks-monitoring" aria-label="Source code for Ecoworks Monitoring on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>D&D Cipher</h3>
+          <span class="row-year">2025</span>
+          
+        </div>
+        <p class="row-desc">Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>TypeScript</li><li>HTML</li><li>CSS</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/dnd-cipher" aria-label="Source code for D&D Cipher on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/dnd-cipher/" aria-label="Live demo of D&D Cipher (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Daikin Connect</h3>
+          <span class="row-year">2024</span>
+          
+        </div>
+        <p class="row-desc">Next.js app for connecting to the Daikin Developer API to monitor and control an air source heat pump.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>TypeScript</li><li>Next.js</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/daikin-connect" aria-label="Source code for Daikin Connect on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>OCR Repo Fetch</h3>
+          <span class="row-year">2024</span>
+          
+        </div>
+        <p class="row-desc">Selenium-based web scraper to automatically fetch candidate work from OCR centres and unzip files for assessment.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Python</li><li>Selenium</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/ocr-repo-fetch" aria-label="Source code for OCR Repo Fetch on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Career Grid</h3>
+          <span class="row-year">2023</span>
+          
+        </div>
+        <p class="row-desc">Interactive career timeline visualiser with an embedded JSON editor for customising skills, education and experience data.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>p5.js</li><li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/career_grid" aria-label="Source code for Career Grid on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/career_grid/" aria-label="Live demo of Career Grid (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Project PPU</h3>
+          <span class="row-year">2022</span>
+          
+        </div>
+        <p class="row-desc">Pixel Processing Unit C library for the Waveshare 3.5 inch touch screen on Raspberry Pi Pico. Hardware-level graphics rendering.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>C</li><li>CMake</li><li>Raspberry Pi Pico</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/project_ppu" aria-label="Source code for Project PPU on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>LMCompile</h3>
+          <span class="row-year">2022</span>
+          
+        </div>
+        <p class="row-desc">Python compiler that translates C files into Little Man Computer assembly language. A teaching tool for understanding compilation.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Python</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/LMCompile" aria-label="Source code for LMCompile on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Quest Companion</h3>
+          <span class="row-year">2021</span>
+          
+        </div>
+        <p class="row-desc">Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Kotlin</li><li>Android</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/quest_companion_android" aria-label="Source code for Quest Companion on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>ShellJS</h3>
+          <span class="row-year">2019</span>
+          
+        </div>
+        <p class="row-desc">Terminal emulator personal website. A fake shell in the browser that accepts commands. A creative experiment in web design.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>JavaScript</li><li>CSS</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/shellJS" aria-label="Source code for ShellJS on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/shellJS/" aria-label="Live demo of ShellJS (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Wedding Web</h3>
+          <span class="row-year">2019</span>
+          
+        </div>
+        <p class="row-desc">Wedding website built with Laravel PHP. Guest management, RSVPs, and information pages.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>PHP</li><li>Laravel</li><li>Vue</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/wedding-web" aria-label="Source code for Wedding Web on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Binary Assembler Bot</h3>
+          <span class="row-year">2018</span>
+          
+        </div>
+        <p class="row-desc">Educational game teaching machine code and assembly programming. Write binary, hex or assembly instructions to control a bot through puzzle levels.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>p5.js</li><li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/bab" aria-label="Source code for Binary Assembler Bot on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/bab/" aria-label="Live demo of Binary Assembler Bot (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>Learn Game Boy</h3>
+          <span class="row-year">2018</span>
+          
+        </div>
+        <p class="row-desc">Comprehensive tutorials teaching Game Boy game development from scratch. Covers gbZ80 assembly, hardware architecture, graphics programming, and maths fundamentals.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Python</li><li>Jinja2</li><li>HTML</li><li>CSS</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/learngameboy" aria-label="Source code for Learn Game Boy on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  <a class=" is-demo" target="_blank" rel="noopener noreferrer" href="https://learngameboy.com/" aria-label="Live demo of Learn Game Boy (opens in a new tab)">Live demo<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+      </div>
+    </li>
+    
+    <li class="project-row">
+      <div class="row-main">
+        <div class="row-head">
+          <h3>eClassroom</h3>
+          <span class="row-year">2016</span>
+          
+        </div>
+        <p class="row-desc">Dissertation project. A VLE with adaptive quizzes using a dynamic pathway algorithm to adjust difficulty based on student progress.</p>
+        <ul class="tech-tags" aria-label="Technologies used">
+          <li>Java</li><li>CSS</li>
+        </ul>
+      </div>
+      <div class="row-links">
+        <a class="" target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/eClassroom" aria-label="Source code for eClassroom on GitHub (opens in a new tab)">Source<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  
+  
+      </div>
+    </li>
+    
+  </ul>
+</section>
+
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div>
+    <h2 id="contact-title">Get in touch</h2>
+    <p>Happy to talk about teaching tools, low-level programming, games, or a project you could use a hand with. GitHub or LinkedIn is the quickest route.</p>
+  </div>
+  <ul class="contact-links">
+    <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington" aria-label="GitHub profile (opens in a new tab)">GitHub</a></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/thebillington" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://thebillington.github.io/cv/" aria-label="CV (opens in a new tab)">CV</a></li>
+    
+    <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington" aria-label="Sponsor my work on GitHub (opens in a new tab)">Sponsor</a></li>
+  </ul>
+</section>
+
+<footer class="site-footer">
+  <span>Billy Rebecchi &middot; Nottingham, UK</span>
+  <span>Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/thebillington/thebillington.github.io">Python + Jinja2</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/thebillington">Sponsor my work</a></span>
 </footer>
 
-  </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var button = document.getElementById('theme-toggle');
+      if (!button) { return; }
+      var root = document.documentElement;
+      var meta = document.querySelector('meta[name="theme-color"]');
+
+      function label() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+
+      function sync() {
+        if (meta) {
+          meta.setAttribute('content',
+            root.getAttribute('data-theme') === 'dark' ? '#0c1016' : '#f6f3ec');
+        }
+        label();
+      }
+
+      button.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { window.localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+        sync();
+      });
+
+      /* Follow the operating system until the visitor makes a choice. */
+      if (window.matchMedia) {
+        var query = window.matchMedia('(prefers-color-scheme: dark)');
+        var onChange = function (event) {
+          var stored = null;
+          try { stored = window.localStorage.getItem('theme'); } catch (e) { /* private mode */ }
+          if (stored) { return; }
+          root.setAttribute('data-theme', event.matches ? 'dark' : 'light');
+          sync();
+        };
+        if (query.addEventListener) {
+          query.addEventListener('change', onChange);
+        } else if (query.addListener) {
+          query.addListener(onChange);
+        }
+      }
+
+      sync();
+    })();
+  </script>
 </body>
 </html>
