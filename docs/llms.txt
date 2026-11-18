@@ -12,8 +12,8 @@
 
 ## Projects
 
-- **Home Assistant Health Bridge** (2026): Apple Health to Home Assistant. A free HACS integration and SwiftUI/HealthKit iOS app. https://github.com/thebillington/health-assist https://healthassist.thebillington.co.uk
-- **Steno Start** (2026): A guided, offline introduction to stenography. Learn the 22-key steno keyboard one chord at a time, then practise real sentences. Free to try, one payment for Pro. https://github.com/thebillington/stenostart-site https://stenostart.uk
+- **Home Assistant Health Bridge** (2026): Apple Health to Home Assistant. A HACS integration and SwiftUI/HealthKit iOS app. https://github.com/thebillington/health-assist https://healthassist.thebillington.co.uk
+- **Steno Start** (2026): A guided, offline introduction to stenography. Learn the 22-key steno keyboard one chord at a time, then practise real sentences. https://github.com/thebillington/stenostart-site https://stenostart.uk
 - **pydle** (2026): Browser-based Python REPL and turtle graphics editor powered by Pyodide. Run Python code in the browser with no server. Includes a full turtle graphics environment with animation support. https://github.com/thebillington/pydle https://pydle.uk
 - **tphysics** (2017): Zero-dependency Python game engine for the classroom. Renders using Turtle graphics to be accessible for learners. Used in schools to teach programming. https://github.com/thebillington/tphysics https://tphysics.uk https://www.youtube.com/watch?v=6z4ZEE0VqHU
 - **Mushy's Adventure** (2023): Full Game Boy game built in gbZ80 Assembly for GGJ 2021. Over 2 years of work learning to write code for the Game Boy from scratch. https://github.com/thebillington/mushys_adventure https://thebillington.github.io/mushys_adventure/ https://www.youtube.com/watch?v=rDdYTNc6fCU
@@ -28,9 +28,7 @@
 - **Skazka** (2019): Game Boy game built with GBDK in C for Global Game Jam 2019. Features pixel assets and a narrative-driven adventure. https://github.com/thebillington/Skazka https://thebillington.github.io/Skazka/
 - **Garden of Eden GB** (2023): Game Boy game built for Global Game Jam 2023 based on the theme Roots. https://github.com/thebillington/garden-of-eden-GB https://thebillington.github.io/garden-of-eden-GB/
 - **Vehicle Game** (2018): OpenGL 3.3+ driving game built in C++. Implements GLFW3, GLEW, and glm for modern graphics pipeline. Includes a video demo of gameplay. https://github.com/thebillington/VehicleGame https://www.youtube.com/watch?v=UIOYu7G-LCk
-- **No Nonsense Revision** (2026): Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. Full syllabus, clear explanations, offline and one payment. https://github.com/thebillington/no-nonsense-revision https://nononsenserevision.uk
-- **Video Communities Revisited** (2026): A research project on the role of physical screen media in forming communities in Britain, past and present. https://github.com/thebillington/video-communities-revisited-site https://thebillington.co.uk/video-communities-revisited-site/
-- **Offers and Discounts Demo** (2026): Demo prod application for a discounts provider backend service. https://github.com/thebillington/offers-service
+- **No Nonsense Revision** (2026): Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. https://github.com/thebillington/no-nonsense-revision https://nononsenserevision.uk
 - **Quest Companion** (2021): Android app for tracking full quest completion on OSRS. Built with Kotlin and modern Android architecture. https://github.com/thebillington/quest_companion_android
 - **Ecoworks Monitoring** (2025): Custom attendance and daily checks monitoring system for the Ecoworks charity site. Built with TypeScript and modern cloud infrastructure. https://github.com/thebillington/ecoworks-monitoring
 - **D&D Cipher** (2025): Dungeons and Dragons glyph generator and cipher tool. Translates text to a custom symbol font for in-game puzzles. https://github.com/thebillington/dnd-cipher https://thebillington.github.io/dnd-cipher/

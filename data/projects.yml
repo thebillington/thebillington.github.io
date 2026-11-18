@@ -1,7 +1,7 @@
 - name: Home Assistant Health Bridge
   year: 2026
   category: featured
-  description: "Apple Health to Home Assistant. A free HACS integration and SwiftUI/HealthKit iOS app."
+  description: "Apple Health to Home Assistant. A HACS integration and SwiftUI/HealthKit iOS app."
   tech: [Python, SwiftUI, HealthKit, Home Assistant]
   repo: thebillington/health-assist
   demo: https://healthassist.thebillington.co.uk
@@ -9,7 +9,7 @@
 - name: Steno Start
   year: 2026
   category: featured
-  description: "A guided, offline introduction to stenography. Learn the 22-key steno keyboard one chord at a time, then practise real sentences. Free to try, one payment for Pro."
+  description: "A guided, offline introduction to stenography. Learn the 22-key steno keyboard one chord at a time, then practise real sentences."
   tech: [HTML, JavaScript, Steno]
   repo: thebillington/stenostart-site
   demo: https://stenostart.uk
@@ -132,26 +132,10 @@
 - name: No Nonsense Revision
   year: 2026
   category: apps
-  description: "Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines. Full syllabus, clear explanations, offline and one payment."
+  description: "Focused revision apps for OCR GCSE Computer Science (J277) and the WSET Level 2 Award in Wines."
   tech: [HTML, CSS]
   repo: thebillington/no-nonsense-revision
   demo: https://nononsenserevision.uk
-
-- name: Video Communities Revisited
-  year: 2026
-  category: apps
-  description: "A research project on the role of physical screen media in forming communities in Britain, past and present."
-  tech: [HTML, CSS, JavaScript]
-  repo: thebillington/video-communities-revisited-site
-  demo: https://thebillington.co.uk/video-communities-revisited-site/
-
-- name: Offers and Discounts Demo
-  year: 2026
-  category: apps
-  description: "Demo prod application for a discounts provider backend service."
-  tech: [TypeScript, AWS, Terraform, Postgres]
-  repo: thebillington/offers-service
-  demo: false
 
 - name: Quest Companion
   year: 2021

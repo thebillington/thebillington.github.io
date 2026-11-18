@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Game Boy">
+  <style>
+    .tile, .hole { fill: #f6f3ec; }
+    .mark { fill: #191b1f; }
+    @media (prefers-color-scheme: dark) {
+      .tile, .hole { fill: #0c1016; }
+      .mark { fill: #e8eef5; }
+    }
+  </style>
+  <rect class="tile" width="512" height="512" rx="96"/>
+  <rect class="mark" x="145" y="97" width="222" height="341" rx="55"/>
+  <g class="hole">
+    <path d="M197 140 H328 V222 Q328 269 289 269 H197 Q185 269 185 257 V152 Q185 140 197 140 Z"/>
+    <rect x="202" y="293" width="16" height="42"/>
+    <rect x="190" y="306" width="41" height="16"/>
+    <circle cx="312" cy="310.5" r="12.5"/>
+    <circle cx="283" cy="319.5" r="12.5"/>
+    <rect x="229" y="359" width="15" height="10" rx="5"/>
+    <rect x="259" y="359" width="15" height="10" rx="5"/>
+  </g>
+</svg>
