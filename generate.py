@@ -131,7 +131,7 @@ def main():
     (OUTPUT / "style.css").write_text((TEMPLATES / "style.css").read_text())
 
     base = "https://thebillington.co.uk"
-    urls = [f"{base}/", f"{base}/cv/"]
+    urls = [f"{base}/"]
     for project in projects:
         demo = project.get("demo")
         if isinstance(demo, str) and demo.startswith("https://thebillington.github.io/"):

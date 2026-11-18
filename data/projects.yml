@@ -54,7 +54,7 @@
   description: My CV, generated from YAML data using Python and Typst. Available as a web page and downloadable PDF.
   tech: [Python, Typst]
   repo: thebillington/cv
-  demo: https://thebillington.github.io/cv/
+  demo: https://billy.rebecchi.uk/
 
 - name: Binary Assembler Bot
   year: 2018

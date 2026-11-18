@@ -40,7 +40,7 @@
 
   <ol class="card-grid" role="list">
     {% for p in sections[0].projects %}
-    <li class="card{% if loop.first %} card--lead{% endif %}">
+    <li class="card">
       <div class="card-top">
         <span class="card-index" aria-hidden="true">{{ "%02d"|format(loop.index) }}</span>
       </div>

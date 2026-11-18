@@ -461,10 +461,27 @@ main:focus {
    --------------------------------------------------------------- */
 
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
   list-style: none;
+}
+
+.card {
+  width: 100%;
+}
+
+@media (min-width: 760px) {
+  .card {
+    width: calc((100% - 18px) / 2);
+  }
+}
+
+@media (min-width: 980px) {
+  .card {
+    width: calc((100% - 36px) / 3);
+  }
 }
 
 .card {
@@ -482,28 +499,6 @@ main:focus {
   border-color: var(--border-strong);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
-}
-
-.card--lead {
-  grid-column: 1 / -1;
-  padding: 30px;
-  background: var(--surface);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 55%, transparent), transparent 90%),
-    var(--surface);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow);
-}
-
-.card--lead::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 30px;
-  width: 64px;
-  height: 3px;
-  border-radius: 0 0 4px 4px;
-  background: var(--accent);
 }
 
 .card-top {
@@ -526,11 +521,6 @@ main:focus {
   letter-spacing: -0.015em;
 }
 
-.card--lead h3 {
-  font-size: clamp(1.4rem, 3vw, 1.75rem);
-  letter-spacing: -0.025em;
-}
-
 .card .year {
   margin-top: 4px;
   font-family: var(--mono);
@@ -544,12 +534,6 @@ main:focus {
   color: var(--text-dim);
   font-size: 0.93rem;
   text-wrap: pretty;
-}
-
-.card--lead .desc {
-  flex: none;
-  max-width: 66ch;
-  font-size: 1rem;
 }
 
 .tech-tags {
@@ -761,55 +745,6 @@ footer.site-footer a:hover {
    Small screens
    --------------------------------------------------------------- */
 
-/* Lead card: a two-column layout on wide screens, with a detail rail. */
-@media (min-width: 900px) {
-  .card--lead {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 232px;
-    column-gap: 52px;
-    align-items: start;
-  }
-
-  .card--lead .card-top {
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-
-  .card--lead h3 {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .card--lead .year {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .card--lead .desc {
-    grid-column: 1;
-    grid-row: 4;
-  }
-
-  .card--lead .tech-tags {
-    grid-column: 2;
-    grid-row: 2 / span 2;
-    align-content: flex-start;
-    margin-top: 2px;
-  }
-
-  .card--lead .card-links {
-    grid-column: 2;
-    grid-row: 4;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    align-self: end;
-    margin-top: 0;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-}
-
 @media (max-width: 760px) {
   :root {
     --gutter: 20px;
@@ -827,14 +762,6 @@ footer.site-footer a:hover {
 
   .card-grid {
     grid-template-columns: 1fr;
-  }
-
-  .card--lead {
-    padding: 22px;
-  }
-
-  .card--lead::before {
-    left: 22px;
   }
 
   .project-row {
